@@ -31,7 +31,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.dgvInventarios = new System.Windows.Forms.DataGridView();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.lblCod = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.txtModificar = new System.Windows.Forms.TextBox();
             this.lblEliminar = new System.Windows.Forms.Label();
             this.txtEliminar = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventarios)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -78,13 +78,13 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // dgvInventario
+            // dgvInventarios
             // 
-            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Location = new System.Drawing.Point(21, 12);
-            this.dgvInventario.Name = "dgvInventario";
-            this.dgvInventario.Size = new System.Drawing.Size(340, 218);
-            this.dgvInventario.TabIndex = 3;
+            this.dgvInventarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventarios.Location = new System.Drawing.Point(21, 12);
+            this.dgvInventarios.Name = "dgvInventarios";
+            this.dgvInventarios.Size = new System.Drawing.Size(340, 218);
+            this.dgvInventarios.TabIndex = 3;
             // 
             // txtCod
             // 
@@ -235,13 +235,13 @@
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblCod);
             this.Controls.Add(this.txtCod);
-            this.Controls.Add(this.dgvInventario);
+            this.Controls.Add(this.dgvInventarios);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Name = "frmInicio";
             this.Text = "Gestion de inventario";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,7 +252,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.DataGridView dgvInventarios;
         private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.Label lblCod;
         private System.Windows.Forms.Label lblNombre;
