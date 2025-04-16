@@ -17,38 +17,25 @@ namespace pryGestionDeInventarios
         {
             InitializeComponent();
         }
-
+        clsConexionBD objetoConexion = new clsConexionBD();
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            clsConexionBD objetoConexion = new clsConexionBD();
+            
 
             objetoConexion.ConectarBD(dgvInventario);
 
-            int[] num = new int[] {1,2,3};
+            string[] dat = new string[] {"Electrònicos", "Bazar/Librerìa", "Perfumes", "Limpieza"};
 
-            foreach (int n in num)
+            foreach (string d in dat)
             {
-                cmbACat.Items.Add(n);
-                cmbMCat.Items.Add(n);
+                cmbACat.Items.Add(d);
+               
             }
 
             
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
         public void cargaDeDatos(TextBox txt, NumericUpDown num, TextBox txt2, NumericUpDown num2, ComboBox cmb)
         {
             if(numACod.Value != 0)
@@ -90,6 +77,31 @@ namespace pryGestionDeInventarios
         private void cmbACat_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargaDeDatos(txtANom, numAPrecio, txtADesc, numAStock, cmbACat);
+        }
+
+        private void dgvInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEliminar.Visible = true;
+            btnModificar.Visible = true;
+
+            
+
+            
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            objetoConexion.agregarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
+
+            objetoConexion.ConectarBD(dgvInventario);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            objetoConexion.borrarProducto(numACod);
+
+            objetoConexion.ConectarBD(dgvInventario);
         }
     }
 }

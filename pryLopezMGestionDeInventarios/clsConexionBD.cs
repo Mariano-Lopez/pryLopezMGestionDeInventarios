@@ -60,5 +60,63 @@ namespace pryGestionInventario
 
         }
 
+        public void agregarProducto(NumericUpDown num, TextBox txt, NumericUpDown num1, TextBox txt2, NumericUpDown num2, ComboBox cmb)
+        {
+            try 
+            {
+                conexionBaseDatos = new SqlConnection(cadenaConexion);
+
+                nombreBaseDeDatos = conexionBaseDatos.Database;
+
+                conexionBaseDatos.Open();
+
+                string query = $"INSERT INTO Productos (Codigo, Nombre, Descripcion, Precio, Stock, Categoria) VALUES ('{num.Value}', '{txt.Text}','{txt2.Text}' , '{num1.Value}', '{num2.Value}', '{cmb.Text}')";
+                SqlCommand command = new SqlCommand(query, conexionBaseDatos);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.Message,"Errorax");
+            }
+            finally 
+            {
+                conexionBaseDatos.Close();
+            }
+            
+
+
+        }
+
+        public void borrarProducto(NumericUpDown num)
+        {
+            try
+            {
+                conexionBaseDatos = new SqlConnection(cadenaConexion);
+
+                nombreBaseDeDatos = conexionBaseDatos.Database;
+
+                conexionBaseDatos.Open();
+
+                string query = $"DELETE FROM Productos WHERE Codigo = '{num.Value}'";
+                SqlCommand command = new SqlCommand(query, conexionBaseDatos);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Errorax");
+            }
+            finally
+            {
+                conexionBaseDatos.Close();
+            }
+
+
+
+        }
+
     }
 }
