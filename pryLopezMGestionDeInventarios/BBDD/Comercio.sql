@@ -6,7 +6,7 @@ CREATE TABLE Productos (
     Codigo INT PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL,
     Descripcion VARCHAR(255),
-    Precio DECIMAL(10, 2) NOT NULL,
+    Precio INT NOT NULL,
     Stock INT NOT NULL,
     Categoria VARCHAR(50) NOT NULL
 );

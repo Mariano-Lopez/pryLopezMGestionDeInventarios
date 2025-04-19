@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAgregar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
@@ -44,6 +45,7 @@
             this.cmbACat = new System.Windows.Forms.ComboBox();
             this.numAStock = new System.Windows.Forms.NumericUpDown();
             this.numAPrecio = new System.Windows.Forms.NumericUpDown();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.numACod = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.mrcAgregar.SuspendLayout();
@@ -52,30 +54,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.numACod)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Enabled = false;
-            this.btnAgregar.Location = new System.Drawing.Point(260, 116);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(179, 117);
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnModificar.Location = new System.Drawing.Point(141, 155);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Visible = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(98, 116);
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnEliminar.Location = new System.Drawing.Point(60, 154);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 24);
             this.btnEliminar.TabIndex = 2;
@@ -86,19 +80,46 @@
             // 
             // dgvInventario
             // 
+            this.dgvInventario.AllowUserToAddRows = false;
+            this.dgvInventario.AllowUserToDeleteRows = false;
+            this.dgvInventario.AllowUserToResizeColumns = false;
+            this.dgvInventario.AllowUserToResizeRows = false;
+            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvInventario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvInventario.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Location = new System.Drawing.Point(14, 220);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInventario.Location = new System.Drawing.Point(10, 216);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.ReadOnly = true;
+            this.dgvInventario.RowHeadersVisible = false;
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventario.ShowEditingIcon = false;
-            this.dgvInventario.Size = new System.Drawing.Size(656, 218);
+            this.dgvInventario.Size = new System.Drawing.Size(654, 218);
             this.dgvInventario.TabIndex = 3;
-            this.dgvInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
+            this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
+            this.dgvInventario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInventario_CellMouseClick);
             // 
             // lblACod
             // 
             this.lblACod.AutoSize = true;
+            this.lblACod.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblACod.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblACod.Location = new System.Drawing.Point(17, 21);
             this.lblACod.Name = "lblACod";
             this.lblACod.Size = new System.Drawing.Size(40, 13);
@@ -108,7 +129,9 @@
             // lblANombre
             // 
             this.lblANombre.AutoSize = true;
-            this.lblANombre.Location = new System.Drawing.Point(126, 21);
+            this.lblANombre.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblANombre.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblANombre.Location = new System.Drawing.Point(129, 21);
             this.lblANombre.Name = "lblANombre";
             this.lblANombre.Size = new System.Drawing.Size(44, 13);
             this.lblANombre.TabIndex = 14;
@@ -116,7 +139,7 @@
             // 
             // txtANom
             // 
-            this.txtANom.Location = new System.Drawing.Point(129, 37);
+            this.txtANom.Location = new System.Drawing.Point(132, 37);
             this.txtANom.Name = "txtANom";
             this.txtANom.Size = new System.Drawing.Size(100, 20);
             this.txtANom.TabIndex = 13;
@@ -125,6 +148,8 @@
             // lblADescripcion
             // 
             this.lblADescripcion.AutoSize = true;
+            this.lblADescripcion.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblADescripcion.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblADescripcion.Location = new System.Drawing.Point(17, 63);
             this.lblADescripcion.Name = "lblADescripcion";
             this.lblADescripcion.Size = new System.Drawing.Size(63, 13);
@@ -134,15 +159,18 @@
             // txtADesc
             // 
             this.txtADesc.Location = new System.Drawing.Point(20, 79);
+            this.txtADesc.Multiline = true;
             this.txtADesc.Name = "txtADesc";
-            this.txtADesc.Size = new System.Drawing.Size(100, 20);
+            this.txtADesc.Size = new System.Drawing.Size(212, 60);
             this.txtADesc.TabIndex = 15;
             this.txtADesc.TextChanged += new System.EventHandler(this.txtADesc_TextChanged);
             // 
             // lblAPrecio
             // 
             this.lblAPrecio.AutoSize = true;
-            this.lblAPrecio.Location = new System.Drawing.Point(126, 64);
+            this.lblAPrecio.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblAPrecio.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblAPrecio.Location = new System.Drawing.Point(238, 63);
             this.lblAPrecio.Name = "lblAPrecio";
             this.lblAPrecio.Size = new System.Drawing.Size(37, 13);
             this.lblAPrecio.TabIndex = 18;
@@ -151,7 +179,9 @@
             // lblAStock
             // 
             this.lblAStock.AutoSize = true;
-            this.lblAStock.Location = new System.Drawing.Point(240, 22);
+            this.lblAStock.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblAStock.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblAStock.Location = new System.Drawing.Point(246, 21);
             this.lblAStock.Name = "lblAStock";
             this.lblAStock.Size = new System.Drawing.Size(35, 13);
             this.lblAStock.TabIndex = 20;
@@ -160,7 +190,9 @@
             // lblACategorias
             // 
             this.lblACategorias.AutoSize = true;
-            this.lblACategorias.Location = new System.Drawing.Point(235, 64);
+            this.lblACategorias.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lblACategorias.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblACategorias.Location = new System.Drawing.Point(238, 102);
             this.lblACategorias.Name = "lblACategorias";
             this.lblACategorias.Size = new System.Drawing.Size(59, 13);
             this.lblACategorias.TabIndex = 22;
@@ -168,6 +200,7 @@
             // 
             // mrcAgregar
             // 
+            this.mrcAgregar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.mrcAgregar.Controls.Add(this.cmbACat);
             this.mrcAgregar.Controls.Add(this.btnEliminar);
             this.mrcAgregar.Controls.Add(this.numAStock);
@@ -183,9 +216,10 @@
             this.mrcAgregar.Controls.Add(this.lblACategorias);
             this.mrcAgregar.Controls.Add(this.lblAPrecio);
             this.mrcAgregar.Controls.Add(this.lblAStock);
-            this.mrcAgregar.Location = new System.Drawing.Point(158, 45);
+            this.mrcAgregar.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.mrcAgregar.Location = new System.Drawing.Point(150, 12);
             this.mrcAgregar.Name = "mrcAgregar";
-            this.mrcAgregar.Size = new System.Drawing.Size(356, 156);
+            this.mrcAgregar.Size = new System.Drawing.Size(365, 198);
             this.mrcAgregar.TabIndex = 27;
             this.mrcAgregar.TabStop = false;
             this.mrcAgregar.Text = "Agregar producto";
@@ -193,15 +227,21 @@
             // cmbACat
             // 
             this.cmbACat.FormattingEnabled = true;
-            this.cmbACat.Location = new System.Drawing.Point(235, 80);
+            this.cmbACat.Location = new System.Drawing.Point(241, 118);
             this.cmbACat.Name = "cmbACat";
             this.cmbACat.Size = new System.Drawing.Size(100, 21);
             this.cmbACat.TabIndex = 26;
+            this.cmbACat.Text = "Seleccione...";
             this.cmbACat.SelectedIndexChanged += new System.EventHandler(this.cmbACat_SelectedIndexChanged);
             // 
             // numAStock
             // 
-            this.numAStock.Location = new System.Drawing.Point(235, 37);
+            this.numAStock.Location = new System.Drawing.Point(241, 36);
+            this.numAStock.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numAStock.Name = "numAStock";
             this.numAStock.Size = new System.Drawing.Size(100, 20);
             this.numAStock.TabIndex = 25;
@@ -209,15 +249,37 @@
             // 
             // numAPrecio
             // 
-            this.numAPrecio.Location = new System.Drawing.Point(129, 80);
+            this.numAPrecio.Location = new System.Drawing.Point(241, 79);
+            this.numAPrecio.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numAPrecio.Name = "numAPrecio";
             this.numAPrecio.Size = new System.Drawing.Size(100, 20);
             this.numAPrecio.TabIndex = 24;
             this.numAPrecio.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Enabled = false;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.Location = new System.Drawing.Point(222, 155);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // numACod
             // 
             this.numACod.Location = new System.Drawing.Point(20, 38);
+            this.numACod.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numACod.Name = "numACod";
             this.numACod.Size = new System.Drawing.Size(100, 20);
             this.numACod.TabIndex = 23;
@@ -227,10 +289,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 464);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.mrcAgregar);
             this.Name = "frmInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de inventario";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
@@ -244,8 +309,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvInventario;
@@ -262,6 +325,7 @@
         private System.Windows.Forms.NumericUpDown numAPrecio;
         private System.Windows.Forms.NumericUpDown numACod;
         private System.Windows.Forms.ComboBox cmbACat;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
 

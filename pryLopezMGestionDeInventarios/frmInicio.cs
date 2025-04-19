@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pryGestionInventario;
+using pryLopezMGestionDeInventarios;
 
 namespace pryGestionDeInventarios
 {
@@ -18,11 +19,13 @@ namespace pryGestionDeInventarios
             InitializeComponent();
         }
         clsConexionBD objetoConexion = new clsConexionBD();
+        clsProductos lstProductos = new clsProductos();
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            
+            objetoConexion.cargarLista(lstProductos);
 
             objetoConexion.ConectarBD(dgvInventario);
+            
 
             string[] dat = new string[] {"Electrònicos", "Bazar/Librerìa", "Perfumes", "Limpieza"};
 
@@ -44,6 +47,7 @@ namespace pryGestionDeInventarios
                 {
                     btnAgregar.Enabled = true;
                 }
+                
             }
 
             
@@ -78,23 +82,23 @@ namespace pryGestionDeInventarios
         {
             cargaDeDatos(txtANom, numAPrecio, txtADesc, numAStock, cmbACat);
         }
-
-        private void dgvInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnEliminar.Visible = true;
-            btnModificar.Visible = true;
-
-            
-
-            
-
-        }
-
+        
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            objetoConexion.agregarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
+            if (codRep() == false)
+            {
+                clsProducto aux = new clsProducto(Convert.ToInt32(numACod.Value), txtANom.Text, txtADesc.Text, numAPrecio.Value, Convert.ToInt32(numAStock.Value), cmbACat.Text);
 
-            objetoConexion.ConectarBD(dgvInventario);
+                lstProductos.agregarProducto(aux);
+
+                objetoConexion.agregarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
+
+                objetoConexion.ConectarBD(dgvInventario);
+
+
+                resetearDatos();
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -102,6 +106,81 @@ namespace pryGestionDeInventarios
             objetoConexion.borrarProducto(numACod);
 
             objetoConexion.ConectarBD(dgvInventario);
+            
+
+            btnEliminar.Visible = false;
+            btnModificar.Visible = false;
+            numACod.Enabled = true;
+
+            resetearDatos();
+        }
+
+        private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEliminar.Visible = true;
+            btnModificar.Visible = true;
+            numACod.Enabled = false;
+            
+
+            if (e.RowIndex >= 0) // Evita que cambie si selecciona el encabezado
+            {
+                DataGridViewRow fila = dgvInventario.Rows[e.RowIndex];
+
+                numACod.Value = Convert.ToDecimal(fila.Cells["Codigo"].Value);
+                txtANom.Text = fila.Cells["Nombre"].Value?.ToString();
+                numAStock.Value = Convert.ToDecimal(fila.Cells["Stock"].Value);
+                txtADesc.Text = fila.Cells["Descripcion"].Value?.ToString();
+                numAPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                cmbACat.Text = fila.Cells["Categoria"].Value.ToString();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            objetoConexion.modificarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
+
+            objetoConexion.ConectarBD(dgvInventario);
+
+            resetearDatos();
+
+            btnEliminar.Visible = false;
+            btnModificar.Visible = false;
+            numACod.Enabled = true;
+        }
+
+        public void resetearDatos()
+        {
+            numACod.Value = 0;
+            txtANom.Text = "";
+            numAStock.Value = 0;
+            txtADesc.Text = "";
+            numAPrecio.Value = 0;
+            cmbACat.SelectedIndex = -1;
+            cmbACat.Text = "Seleccione...";
+            btnAgregar.Enabled = false;
+        }
+
+        public bool codRep()
+        {
+            bool bandera = false;
+
+            lstProductos.lstProductos.ForEach(p =>
+            {
+                if (p.Codigo == Convert.ToInt32(numACod.Value))
+                {
+
+                    MessageBox.Show("Re", "Putito");
+                    bandera = true;
+                }
+
+            });
+
+            return bandera;
+        }
+
+        private void dgvInventario_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btnAgregar.Enabled = false;
         }
     }
 }
