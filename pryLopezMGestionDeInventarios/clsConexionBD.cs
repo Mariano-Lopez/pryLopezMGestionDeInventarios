@@ -181,6 +181,8 @@ namespace pryGestionInventario
 
                 SqlCommand command = new SqlCommand(query, conexionBaseDatos);
 
+
+
                 // Asignar los parámetros
                 command.Parameters.AddWithValue("@Nombre", txt.Text);
                 command.Parameters.AddWithValue("@Descripcion", txt2.Text);
@@ -190,6 +192,8 @@ namespace pryGestionInventario
                 command.Parameters.AddWithValue("@Codigo", num.Value);
 
                 command.ExecuteNonQuery();
+                
+                
             }
             catch (Exception ex)
             {

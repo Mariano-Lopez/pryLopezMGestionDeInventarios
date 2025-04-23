@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pryGestionInventario;
 using pryLopezMGestionDeInventarios;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace pryGestionDeInventarios
 {
@@ -46,8 +47,23 @@ namespace pryGestionDeInventarios
                 if (txt.Text != "" && num.Value != 0 && txt2.Text != "" && num2.Value != 0 && cmb.SelectedIndex != -1)
                 {
                     btnAgregar.Enabled = true;
+
                 }
-                
+                else
+                {
+                    btnAgregar.Enabled = false;
+                }
+
+                if (txt.Text != "" || num.Value != 0 || txt2.Text != "" || num2.Value != 0 || cmb.SelectedIndex != -1)
+                {
+                    btnModificar.Enabled = true;
+
+                }
+                else
+                {
+                    btnModificar.Enabled = false;
+                }
+
             }
 
             
@@ -95,7 +111,6 @@ namespace pryGestionDeInventarios
 
                 objetoConexion.ConectarBD(dgvInventario);
 
-
                 resetearDatos();
             }
             
@@ -137,20 +152,36 @@ namespace pryGestionDeInventarios
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            objetoConexion.modificarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
 
-            objetoConexion.ConectarBD(dgvInventario);
+            if (numACod.Value == 0 || txtANom.Text == "" || numAStock.Value == 0 || txtADesc.Text == "" || numAPrecio.Value == 0)
+            {
+                MessageBox.Show("No se pueden dejar campos vacios", "Error de carga");
 
-            resetearDatos();
+            }
+            else
+            {
 
-            btnEliminar.Visible = false;
-            btnModificar.Visible = false;
-            numACod.Enabled = true;
+
+                objetoConexion.modificarProducto(numACod, txtANom, numAStock, txtADesc, numAPrecio, cmbACat);
+
+                objetoConexion.ConectarBD(dgvInventario);
+
+                resetearDatos();
+
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
+                numACod.Enabled = true;
+                numACod.Focus();
+
+            }
+
+            
         }
 
         public void resetearDatos()
         {
             numACod.Value = 0;
+            numACod.Enabled = true;
             txtANom.Text = "";
             numAStock.Value = 0;
             txtADesc.Text = "";
@@ -158,6 +189,7 @@ namespace pryGestionDeInventarios
             cmbACat.SelectedIndex = -1;
             cmbACat.Text = "Seleccione...";
             btnAgregar.Enabled = false;
+
         }
 
         public bool codRep()
@@ -169,7 +201,7 @@ namespace pryGestionDeInventarios
                 if (p.Codigo == Convert.ToInt32(numACod.Value))
                 {
 
-                    MessageBox.Show("Re", "Putito");
+                    MessageBox.Show("El código que intentar cargar ya existe", "Error de carga");
                     bandera = true;
                 }
 
@@ -181,6 +213,15 @@ namespace pryGestionDeInventarios
         private void dgvInventario_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             btnAgregar.Enabled = false;
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Visible = false;
+            btnModificar.Visible = false;
+            dgvInventario.ClearSelection();
+            resetearDatos();
+            numACod.Focus();
         }
     }
 }

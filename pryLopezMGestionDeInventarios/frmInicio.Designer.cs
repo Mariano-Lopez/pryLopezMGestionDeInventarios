@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
@@ -47,17 +48,21 @@
             this.numAPrecio = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.numACod = new System.Windows.Forms.NumericUpDown();
+            this.btnReiniciar = new System.Windows.Forms.Button();
+            this.mrcInstrucciones = new System.Windows.Forms.GroupBox();
+            this.lblInstrucciones = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.mrcAgregar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numACod)).BeginInit();
+            this.mrcInstrucciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnModificar
             // 
             this.btnModificar.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnModificar.Location = new System.Drawing.Point(141, 155);
+            this.btnModificar.Location = new System.Drawing.Point(104, 156);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 1;
@@ -69,7 +74,7 @@
             // btnEliminar
             // 
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnEliminar.Location = new System.Drawing.Point(60, 154);
+            this.btnEliminar.Location = new System.Drawing.Point(23, 155);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 24);
             this.btnEliminar.TabIndex = 2;
@@ -111,7 +116,7 @@
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventario.ShowEditingIcon = false;
             this.dgvInventario.Size = new System.Drawing.Size(654, 218);
-            this.dgvInventario.TabIndex = 3;
+            this.dgvInventario.TabIndex = 1;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
             this.dgvInventario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInventario_CellMouseClick);
             // 
@@ -123,7 +128,7 @@
             this.lblACod.Location = new System.Drawing.Point(20, 21);
             this.lblACod.Name = "lblACod";
             this.lblACod.Size = new System.Drawing.Size(40, 13);
-            this.lblACod.TabIndex = 12;
+            this.lblACod.TabIndex = 3;
             this.lblACod.Text = "Código";
             // 
             // lblANombre
@@ -142,7 +147,7 @@
             this.txtANom.Location = new System.Drawing.Point(132, 37);
             this.txtANom.Name = "txtANom";
             this.txtANom.Size = new System.Drawing.Size(100, 20);
-            this.txtANom.TabIndex = 13;
+            this.txtANom.TabIndex = 1;
             this.txtANom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
             // 
             // lblADescripcion
@@ -162,7 +167,7 @@
             this.txtADesc.Multiline = true;
             this.txtADesc.Name = "txtADesc";
             this.txtADesc.Size = new System.Drawing.Size(212, 60);
-            this.txtADesc.TabIndex = 15;
+            this.txtADesc.TabIndex = 3;
             this.txtADesc.TextChanged += new System.EventHandler(this.txtADesc_TextChanged);
             // 
             // lblAPrecio
@@ -201,6 +206,7 @@
             // mrcAgregar
             // 
             this.mrcAgregar.BackColor = System.Drawing.Color.SlateGray;
+            this.mrcAgregar.Controls.Add(this.btnReiniciar);
             this.mrcAgregar.Controls.Add(this.cmbACat);
             this.mrcAgregar.Controls.Add(this.btnEliminar);
             this.mrcAgregar.Controls.Add(this.numAStock);
@@ -217,10 +223,10 @@
             this.mrcAgregar.Controls.Add(this.lblAPrecio);
             this.mrcAgregar.Controls.Add(this.lblAStock);
             this.mrcAgregar.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mrcAgregar.Location = new System.Drawing.Point(150, 12);
+            this.mrcAgregar.Location = new System.Drawing.Point(12, 12);
             this.mrcAgregar.Name = "mrcAgregar";
             this.mrcAgregar.Size = new System.Drawing.Size(365, 198);
-            this.mrcAgregar.TabIndex = 27;
+            this.mrcAgregar.TabIndex = 0;
             this.mrcAgregar.TabStop = false;
             this.mrcAgregar.Text = "Agregar producto";
             // 
@@ -230,7 +236,7 @@
             this.cmbACat.Location = new System.Drawing.Point(240, 118);
             this.cmbACat.Name = "cmbACat";
             this.cmbACat.Size = new System.Drawing.Size(100, 21);
-            this.cmbACat.TabIndex = 26;
+            this.cmbACat.TabIndex = 5;
             this.cmbACat.Text = "Seleccione...";
             this.cmbACat.SelectedIndexChanged += new System.EventHandler(this.cmbACat_SelectedIndexChanged);
             // 
@@ -244,7 +250,7 @@
             0});
             this.numAStock.Name = "numAStock";
             this.numAStock.Size = new System.Drawing.Size(100, 20);
-            this.numAStock.TabIndex = 25;
+            this.numAStock.TabIndex = 2;
             this.numAStock.ValueChanged += new System.EventHandler(this.numAStock_ValueChanged);
             // 
             // numAPrecio
@@ -257,14 +263,14 @@
             0});
             this.numAPrecio.Name = "numAPrecio";
             this.numAPrecio.Size = new System.Drawing.Size(100, 20);
-            this.numAPrecio.TabIndex = 24;
+            this.numAPrecio.TabIndex = 4;
             this.numAPrecio.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Enabled = false;
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregar.Location = new System.Drawing.Point(222, 155);
+            this.btnAgregar.Location = new System.Drawing.Point(185, 156);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 0;
@@ -282,8 +288,37 @@
             0});
             this.numACod.Name = "numACod";
             this.numACod.Size = new System.Drawing.Size(100, 20);
-            this.numACod.TabIndex = 23;
+            this.numACod.TabIndex = 0;
             this.numACod.ValueChanged += new System.EventHandler(this.numACod_ValueChanged);
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(266, 156);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnReiniciar.TabIndex = 2;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            // 
+            // mrcInstrucciones
+            // 
+            this.mrcInstrucciones.BackColor = System.Drawing.Color.SlateGray;
+            this.mrcInstrucciones.Controls.Add(this.lblInstrucciones);
+            this.mrcInstrucciones.Location = new System.Drawing.Point(394, 12);
+            this.mrcInstrucciones.Name = "mrcInstrucciones";
+            this.mrcInstrucciones.Size = new System.Drawing.Size(270, 198);
+            this.mrcInstrucciones.TabIndex = 2;
+            this.mrcInstrucciones.TabStop = false;
+            this.mrcInstrucciones.Text = "Instrucciones de uso";
+            // 
+            // lblInstrucciones
+            // 
+            this.lblInstrucciones.Location = new System.Drawing.Point(6, 21);
+            this.lblInstrucciones.Name = "lblInstrucciones";
+            this.lblInstrucciones.Size = new System.Drawing.Size(258, 174);
+            this.lblInstrucciones.TabIndex = 0;
+            this.lblInstrucciones.Text = resources.GetString("lblInstrucciones.Text");
             // 
             // frmInicio
             // 
@@ -292,6 +327,7 @@
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(678, 450);
+            this.Controls.Add(this.mrcInstrucciones);
             this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.mrcAgregar);
             this.Name = "frmInicio";
@@ -304,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numACod)).EndInit();
+            this.mrcInstrucciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -326,6 +363,9 @@
         private System.Windows.Forms.NumericUpDown numACod;
         private System.Windows.Forms.ComboBox cmbACat;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnReiniciar;
+        private System.Windows.Forms.GroupBox mrcInstrucciones;
+        private System.Windows.Forms.Label lblInstrucciones;
     }
 }
 

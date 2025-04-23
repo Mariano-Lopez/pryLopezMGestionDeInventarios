@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblInstrucciones.Text" xml:space="preserve">
+    <value>Para agregar un producto, complete todos los datos para que se habilite el boton.
+
+Para modificarlo seleccione la fila que desea editar, los campos se llenaran automaticamente con los datos de la fila seleccionada.
+
+Para eliminar, seleccione la fila y apriete el boton "Eliminar."</value>
+  </data>
 </root>
