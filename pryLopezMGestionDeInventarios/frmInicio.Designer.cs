@@ -43,12 +43,12 @@
             this.lblAStock = new System.Windows.Forms.Label();
             this.lblACategorias = new System.Windows.Forms.Label();
             this.mrcAgregar = new System.Windows.Forms.GroupBox();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.cmbACat = new System.Windows.Forms.ComboBox();
             this.numAStock = new System.Windows.Forms.NumericUpDown();
             this.numAPrecio = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.numACod = new System.Windows.Forms.NumericUpDown();
-            this.btnReiniciar = new System.Windows.Forms.Button();
             this.mrcInstrucciones = new System.Windows.Forms.GroupBox();
             this.lblInstrucciones = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
@@ -230,6 +230,16 @@
             this.mrcAgregar.TabStop = false;
             this.mrcAgregar.Text = "Agregar producto";
             // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(266, 156);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnReiniciar.TabIndex = 2;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            // 
             // cmbACat
             // 
             this.cmbACat.FormattingEnabled = true;
@@ -291,16 +301,6 @@
             this.numACod.TabIndex = 0;
             this.numACod.ValueChanged += new System.EventHandler(this.numACod_ValueChanged);
             // 
-            // btnReiniciar
-            // 
-            this.btnReiniciar.Location = new System.Drawing.Point(266, 156);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(75, 23);
-            this.btnReiniciar.TabIndex = 2;
-            this.btnReiniciar.Text = "Reiniciar";
-            this.btnReiniciar.UseVisualStyleBackColor = true;
-            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
-            // 
             // mrcInstrucciones
             // 
             this.mrcInstrucciones.BackColor = System.Drawing.Color.SlateGray;
@@ -332,7 +332,7 @@
             this.Controls.Add(this.mrcAgregar);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion de inventario";
+            this.Text = "+";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.mrcAgregar.ResumeLayout(false);
