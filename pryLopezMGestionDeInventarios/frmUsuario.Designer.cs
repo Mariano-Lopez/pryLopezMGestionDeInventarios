@@ -34,10 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mrcSesion = new System.Windows.Forms.GroupBox();
+            this.chkContraseña = new System.Windows.Forms.CheckBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContra = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblIntentos = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,31 +51,32 @@
             // 
             // lblTit
             // 
-            this.lblTit.BackColor = System.Drawing.Color.Transparent;
-            this.lblTit.Font = new System.Drawing.Font("Monospac821 BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTit.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTit.Location = new System.Drawing.Point(107, 9);
+            this.lblTit.BackColor = System.Drawing.Color.Black;
+            this.lblTit.Font = new System.Drawing.Font("BankGothic Md BT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTit.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblTit.Location = new System.Drawing.Point(107, 5);
             this.lblTit.Name = "lblTit";
-            this.lblTit.Size = new System.Drawing.Size(289, 26);
+            this.lblTit.Size = new System.Drawing.Size(294, 26);
             this.lblTit.TabIndex = 0;
-            this.lblTit.Text = "Gestion de inventario";
+            this.lblTit.Text = "Gestión de inventario";
             // 
             // lblNom
             // 
-            this.lblNom.BackColor = System.Drawing.Color.Transparent;
-            this.lblNom.Font = new System.Drawing.Font("Monospac821 BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblNom.Location = new System.Drawing.Point(106, 35);
+            this.lblNom.BackColor = System.Drawing.Color.Black;
+            this.lblNom.Font = new System.Drawing.Font("BankGothic Md BT", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblNom.Location = new System.Drawing.Point(107, 31);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(107, 36);
+            this.lblNom.Size = new System.Drawing.Size(139, 36);
             this.lblNom.TabIndex = 2;
             this.lblNom.Text = "Korax";
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Monospac821 BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(31, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(443, 77);
@@ -87,84 +89,107 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Monospac821 BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkGreen;
             this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(77, 14);
             this.label2.TabIndex = 4;
             this.label2.Text = "Usuario:";
             // 
             // mrcSesion
             // 
-            this.mrcSesion.BackColor = System.Drawing.Color.Transparent;
+            this.mrcSesion.BackColor = System.Drawing.Color.Black;
+            this.mrcSesion.Controls.Add(this.chkContraseña);
             this.mrcSesion.Controls.Add(this.btnIngresar);
             this.mrcSesion.Controls.Add(this.label3);
-            this.mrcSesion.Controls.Add(this.textBox2);
-            this.mrcSesion.Controls.Add(this.textBox1);
+            this.mrcSesion.Controls.Add(this.txtContra);
+            this.mrcSesion.Controls.Add(this.txtUsuario);
             this.mrcSesion.Controls.Add(this.label2);
-            this.mrcSesion.Location = new System.Drawing.Point(159, 185);
+            this.mrcSesion.Location = new System.Drawing.Point(135, 190);
             this.mrcSesion.Name = "mrcSesion";
-            this.mrcSesion.Size = new System.Drawing.Size(159, 157);
+            this.mrcSesion.Size = new System.Drawing.Size(189, 175);
             this.mrcSesion.TabIndex = 5;
             this.mrcSesion.TabStop = false;
             // 
+            // chkContraseña
+            // 
+            this.chkContraseña.AutoSize = true;
+            this.chkContraseña.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkContraseña.ForeColor = System.Drawing.Color.DarkGreen;
+            this.chkContraseña.Location = new System.Drawing.Point(9, 114);
+            this.chkContraseña.Name = "chkContraseña";
+            this.chkContraseña.Size = new System.Drawing.Size(170, 16);
+            this.chkContraseña.TabIndex = 9;
+            this.chkContraseña.Text = "Mostrar contraseña";
+            this.chkContraseña.UseVisualStyleBackColor = true;
+            this.chkContraseña.CheckedChanged += new System.EventHandler(this.chkContraseña_CheckedChanged);
+            // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(42, 118);
+            this.btnIngresar.BackColor = System.Drawing.Color.Black;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresar.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnIngresar.Location = new System.Drawing.Point(52, 136);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.Size = new System.Drawing.Size(94, 23);
             this.btnIngresar.TabIndex = 8;
             this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnIngresar.MouseEnter += new System.EventHandler(this.btnIngresar_MouseEnter);
+            this.btnIngresar.MouseLeave += new System.EventHandler(this.btnIngresar_MouseLeave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Monospac821 BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
             this.label3.Location = new System.Drawing.Point(6, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 16);
+            this.label3.Size = new System.Drawing.Size(108, 14);
             this.label3.TabIndex = 7;
             this.label3.Text = "Contraseña:";
             // 
-            // textBox2
+            // txtContra
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtContra.Location = new System.Drawing.Point(9, 88);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(170, 20);
+            this.txtContra.TabIndex = 6;
+            this.txtContra.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtUsuario.Location = new System.Drawing.Point(9, 34);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(170, 20);
+            this.txtUsuario.TabIndex = 5;
             // 
             // lblIntentos
             // 
             this.lblIntentos.AutoSize = true;
-            this.lblIntentos.BackColor = System.Drawing.Color.Transparent;
-            this.lblIntentos.Font = new System.Drawing.Font("Monospac821 BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntentos.BackColor = System.Drawing.Color.Black;
+            this.lblIntentos.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIntentos.ForeColor = System.Drawing.Color.Red;
-            this.lblIntentos.Location = new System.Drawing.Point(142, 354);
+            this.lblIntentos.Location = new System.Drawing.Point(121, 377);
             this.lblIntentos.Name = "lblIntentos";
-            this.lblIntentos.Size = new System.Drawing.Size(159, 16);
+            this.lblIntentos.Size = new System.Drawing.Size(207, 17);
             this.lblIntentos.TabIndex = 9;
             this.lblIntentos.Text = "Intentos restantes:";
+            this.lblIntentos.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Monospac821 BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
             this.label4.Location = new System.Drawing.Point(12, 408);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(319, 16);
+            this.label4.Size = new System.Drawing.Size(351, 14);
             this.label4.TabIndex = 10;
             this.label4.Text = "Coleigo Universitario IES Siglo 21 2025";
             // 
@@ -180,7 +205,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackColor = System.Drawing.Color.Black;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(12, 9);
             this.pictureBox2.Name = "pictureBox2";
@@ -191,12 +216,12 @@
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Window;
-            this.label5.Location = new System.Drawing.Point(103, 75);
+            this.label5.BackColor = System.Drawing.Color.Black;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label5.Location = new System.Drawing.Point(107, 67);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(379, 25);
+            this.label5.Size = new System.Drawing.Size(288, 25);
             this.label5.TabIndex = 13;
             this.label5.Text = "----------------------------------------------";
             // 
@@ -217,8 +242,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblTit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUsuario";
-            this.Text = "frmUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inicio de sesión - Gestión de inventario Korax";
+            this.Load += new System.EventHandler(this.frmUsuario_Load);
             this.mrcSesion.ResumeLayout(false);
             this.mrcSesion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -236,13 +264,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox mrcSesion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.TextBox txtContra;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblIntentos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.CheckBox chkContraseña;
     }
 }

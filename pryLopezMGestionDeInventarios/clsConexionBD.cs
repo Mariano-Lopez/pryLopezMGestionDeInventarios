@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Collections;
 using pryLopezMGestionDeInventarios;
+using pryGestionDeInventarios;
 
 namespace pryGestionInventario
 {
@@ -27,7 +28,7 @@ namespace pryGestionInventario
         public string nombreBaseDeDatos;
 
 
-        public void ConectarBD(DataGridView dgv)
+        public void ConectarBDDGV(DataGridView dgv)
         {
             try
             {
@@ -59,7 +60,7 @@ namespace pryGestionInventario
             }
             catch (Exception error)
             {
-                MessageBox.Show("Tiene un errorcito - " + error.Message);
+                MessageBox.Show(error.Message, "No se pudo conectar a la BBDD");
             }
             finally
             {
@@ -67,6 +68,131 @@ namespace pryGestionInventario
             }
 
         }
+
+        public void ConectarBD()
+        {
+            try
+            {
+                conexionBaseDatos = new SqlConnection(cadenaConexion);
+
+                nombreBaseDeDatos = conexionBaseDatos.Database;
+
+                conexionBaseDatos.Open();
+
+
+
+                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "No se pudo conectar a la BBDD");
+            }
+            finally
+            {
+                conexionBaseDatos.Close();
+            }
+
+        }
+
+        public void validacionDeDatos(TextBox txt, TextBox txt2)
+        {
+            string query = "SELECT COUNT(*) FROM Usuarios WHERE Nombre = @usuario AND contraseña = @contraseña";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@usuario", txt.Text);
+                cmd.Parameters.AddWithValue("@contraseña", txt2.Text);
+
+                conexion.Open();
+                int count = (int)cmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    frmInicio v= new frmInicio();
+                    v.ShowDialog();
+                }
+            }
+
+
+
+        }
+
+        public void cargarUsuario(clsUsuarios lst)
+        {
+            try
+            {
+                conexionBaseDatos = new SqlConnection(cadenaConexion);
+
+                nombreBaseDeDatos = conexionBaseDatos.Database;
+
+                conexionBaseDatos.Open();
+
+                string query = "SELECT * FROM Usuarios";
+                comandoBaseDatos = new SqlCommand(query, conexionBaseDatos);
+
+                //Crear un DataTable
+                DataTable tablaProductos = new DataTable();
+
+                //Llenar el DataTable
+                using (SqlDataReader reader = comandoBaseDatos.ExecuteReader())
+                {
+                    tablaProductos.Load(reader);
+                }
+
+                foreach (DataRow fila in tablaProductos.Rows)
+                {
+                    clsUsuario aux = new clsUsuario(Convert.ToInt32(fila[0]), fila[1].ToString(), fila[2].ToString(), Convert.ToInt32(fila[3]), Convert.ToDateTime(fila[4])); 
+
+                    lst.lstUsuarios.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+               
+            }
+        }
+
+
+        public void ActualizarUsuario(clsUsuario usuario)
+        {
+            string query = "UPDATE Usuarios SET estado = @estado WHERE id = @id";
+
+            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Asignamos los parámetros
+                    cmd.Parameters.AddWithValue("@estado", usuario.estado);
+                    cmd.Parameters.AddWithValue("@id", usuario.id);
+
+                    // Abrimos la conexión y ejecutamos el comando
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void ActualizarInicio(clsUsuario usuario)
+        {
+            string query = "UPDATE Usuarios SET ultcon = @ultcon WHERE id = @id";
+
+            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Asignamos los parámetros
+                    cmd.Parameters.AddWithValue("@ultcon", usuario.ultcon);
+                    cmd.Parameters.AddWithValue("@id", usuario.id);
+
+                    // Abrimos la conexión y ejecutamos el comando
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         public void cargarLista(clsProductos lista)
         {
@@ -204,6 +330,10 @@ namespace pryGestionInventario
                 conexionBaseDatos.Close();
             }
         }
+
+        
+
+
 
 
     }
