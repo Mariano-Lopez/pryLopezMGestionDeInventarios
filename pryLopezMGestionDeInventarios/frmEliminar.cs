@@ -62,32 +62,79 @@ namespace pryLopezMGestionDeInventarios
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            if (numCodE.Value == 0)
+            if (chkConf.Checked)
             {
-                MessageBox.Show("Por favor cargue un código o seleccione una fila.", "Error");
+                DialogResult rtdo = MessageBox.Show(
+                    "¿Desea eliminar el siguiente producto?\n" +
+                    $"Código: {numCodE.Value}\n" +
+                    $"Nombre: {txtNomE.Text}\n" +
+                    $"Descripción: {txtDescE.Text}\n" +
+                    $"Stock: {numStockE.Value}\n" +
+                    $"Precio: {numPrecioE.Value}\n" +
+                    $"Categoría: {cmbCatE.Text}\n",
+                    "COnfirmación de eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+
+                );
+
+                if (rtdo == DialogResult.Yes)
+                {
+                    if (numCodE.Value == 0)
+                    {
+                        MessageBox.Show("Por favor cargue un código o seleccione una fila.", "Error");
+                    }
+
+                    else
+                    {
+                        decimal codigoBuscado = numCodE.Value;
+                        clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
+
+                        if (resultado != null)
+                        {
+                            objetoConexion.borrarProducto(numCodE);
+
+                            objetoConexion.ConectarBDDGV(dgvInventario);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producto no encontrado.");
+
+                        }
+
+                        resetearDatos();
+                    }
+
+
+                }
             }
-            
             else
             {
-                decimal codigoBuscado = numCodE.Value;
-                clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
-
-                if (resultado != null)
+                if (numCodE.Value == 0)
                 {
-                    objetoConexion.borrarProducto(numCodE);
-
-                    objetoConexion.ConectarBDDGV(dgvInventario);
+                    MessageBox.Show("Por favor cargue un código o seleccione una fila.", "Error");
                 }
+
                 else
                 {
-                    MessageBox.Show("Producto no encontrado.");
+                    decimal codigoBuscado = numCodE.Value;
+                    clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
 
+                    if (resultado != null)
+                    {
+                        objetoConexion.borrarProducto(numCodE);
+
+                        objetoConexion.ConectarBDDGV(dgvInventario);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Producto no encontrado.");
+
+                    }
+
+                    resetearDatos();
                 }
-
-                resetearDatos();
             }
-
-                
         }
 
         public void resetearDatos()

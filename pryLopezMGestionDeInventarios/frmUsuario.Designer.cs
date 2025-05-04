@@ -243,6 +243,7 @@
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblTit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión - Gestión de inventario Korax";

@@ -48,6 +48,7 @@
             this.txtDescE = new System.Windows.Forms.TextBox();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.chkConf = new System.Windows.Forms.CheckBox();
             this.mrcEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCodE)).BeginInit();
@@ -59,6 +60,7 @@
             // mrcEliminar
             // 
             this.mrcEliminar.BackColor = System.Drawing.Color.Black;
+            this.mrcEliminar.Controls.Add(this.chkConf);
             this.mrcEliminar.Controls.Add(this.btnBuscar);
             this.mrcEliminar.Controls.Add(this.btnEliminar);
             this.mrcEliminar.Controls.Add(this.lblEliminar);
@@ -308,6 +310,18 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // chkConf
+            // 
+            this.chkConf.AutoSize = true;
+            this.chkConf.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkConf.ForeColor = System.Drawing.Color.DarkGreen;
+            this.chkConf.Location = new System.Drawing.Point(503, 218);
+            this.chkConf.Name = "chkConf";
+            this.chkConf.Size = new System.Drawing.Size(193, 16);
+            this.chkConf.TabIndex = 25;
+            this.chkConf.Text = "Mesaje de confirmación";
+            this.chkConf.UseVisualStyleBackColor = true;
+            // 
             // frmEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,5 +369,6 @@
         private System.Windows.Forms.Label lblEliminar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.CheckBox chkConf;
     }
 }

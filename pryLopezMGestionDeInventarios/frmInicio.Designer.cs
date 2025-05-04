@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.ptbCierre = new System.Windows.Forms.PictureBox();
+            this.lblUltcon = new System.Windows.Forms.Label();
             this.ptbInicio = new System.Windows.Forms.PictureBox();
             this.ptbEliminar = new System.Windows.Forms.PictureBox();
             this.ptbModificar = new System.Windows.Forms.PictureBox();
@@ -45,8 +47,6 @@
             this.lblTit = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pnlFormHijo = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblUltcon = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCierre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).BeginInit();
@@ -79,6 +79,18 @@
             this.panelMenu.Size = new System.Drawing.Size(250, 617);
             this.panelMenu.TabIndex = 3;
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("BankGothic Md BT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblUsuario.Location = new System.Drawing.Point(2, 517);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(242, 16);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "nombre de usurio actual";
+            // 
             // ptbCierre
             // 
             this.ptbCierre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -89,6 +101,17 @@
             this.ptbCierre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbCierre.TabIndex = 0;
             this.ptbCierre.TabStop = false;
+            // 
+            // lblUltcon
+            // 
+            this.lblUltcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUltcon.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltcon.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblUltcon.Location = new System.Drawing.Point(3, 533);
+            this.lblUltcon.Name = "lblUltcon";
+            this.lblUltcon.Size = new System.Drawing.Size(241, 36);
+            this.lblUltcon.TabIndex = 0;
+            this.lblUltcon.Text = "fecha y hora de ultima conexion de usuario actual";
             // 
             // ptbInicio
             // 
@@ -291,29 +314,6 @@
             this.pnlFormHijo.Name = "pnlFormHijo";
             this.pnlFormHijo.Size = new System.Drawing.Size(777, 617);
             this.pnlFormHijo.TabIndex = 4;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("BankGothic Md BT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblUsuario.Location = new System.Drawing.Point(2, 517);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(242, 16);
-            this.lblUsuario.TabIndex = 1;
-            this.lblUsuario.Text = "nombre de usurio actual";
-            // 
-            // lblUltcon
-            // 
-            this.lblUltcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUltcon.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUltcon.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblUltcon.Location = new System.Drawing.Point(3, 533);
-            this.lblUltcon.Name = "lblUltcon";
-            this.lblUltcon.Size = new System.Drawing.Size(241, 36);
-            this.lblUltcon.TabIndex = 0;
-            this.lblUltcon.Text = "fecha y hora de ultima conexion de usuario actual";
             // 
             // frmInicio
             // 

@@ -70,10 +70,10 @@ namespace pryLopezMGestionDeInventarios
             txtNomA.Text = nombre;
             txtDescA.Text = descripcion;
 
-
+            
             if (codRep() == false)
             {
-                clsProducto aux = new clsProducto(Convert.ToInt32(numCodA.Value), txtNomA.Text, txtDescA.Text , numPrecioA.Value, Convert.ToInt32(numStockA.Value), cmbCatA.Text);
+                clsProducto aux = new clsProducto(Convert.ToInt32(numCodA.Value), txtNomA.Text, txtDescA.Text, numPrecioA.Value, Convert.ToInt32(numStockA.Value), cmbCatA.Text);
 
                 lstProductos.agregarProducto(aux);
 
@@ -83,13 +83,16 @@ namespace pryLopezMGestionDeInventarios
 
                 resetearDatos();
 
-                
+
             }
+            
+            
+            
         }
 
         public void cargaDeDatos(TextBox txt, NumericUpDown num, TextBox txt2, NumericUpDown num2, ComboBox cmb)
         {
-            if (numCodA.Value != 0)
+            if (numCodA.Value > 0)
             {
                 if (txt.Text != "" && num.Value != 0 && txt2.Text != "" && num2.Value != 0 && cmb.SelectedIndex != -1)
                 {
@@ -97,11 +100,12 @@ namespace pryLopezMGestionDeInventarios
                     HabilitarBoton();
                     
                 }
-                else
-                {
-                    btnAgregar.Enabled = false;
-                    btnAgregar.FlatAppearance.BorderSize = 0;
-                }
+                
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+                btnAgregar.FlatAppearance.BorderSize = 0;
             }
         }
 
