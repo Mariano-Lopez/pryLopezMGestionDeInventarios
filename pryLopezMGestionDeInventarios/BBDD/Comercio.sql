@@ -42,19 +42,18 @@ CREATE TABLE Usuarios (
     contraseña VARCHAR(255),
     estado BIT,
     ultcon DATETIME NOT NULL,
+	intentos int NOT NULL
 );
 
 
-INSERT INTO Usuarios (id, nombre, contraseña, estado, ultcon) VALUES
-(1, 'mariano', 'asd1', 1, '03/05/2025');
-
 drop table usuarios;
 
-INSERT INTO Usuarios (id, nombre, contraseña, estado, ultcon)
+INSERT INTO Usuarios (id, nombre, contraseña, estado, ultcon, intentos)
 VALUES 
-(1, 'mariano', 'asd1', 1, '2025-05-03 18:30:00'),
-(2, 'facundo', 'asd1', 1, '2025-05-03 18:30:00');
+(1, 'mariano', 'asd1', 1, '2025-05-03 18:30:00', 3),
+(2, 'facundo', 'asd1', 1, '2025-05-03 18:30:00', 3),
+(3,'admin', 'admin', 1, '2025-05-03 18:30:00', 3);
 
-UPDATE Usuarios SET estado = 1 WHERE id = 1;
+UPDATE Usuarios SET estado = 1, intentos = 3 WHERE id = 1;
 
 select * from usuarios;

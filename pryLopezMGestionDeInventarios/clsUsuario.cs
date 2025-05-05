@@ -15,13 +15,16 @@ namespace pryLopezMGestionDeInventarios
         public int estado { get; set; }
         public DateTime ultcon { get; set; }
 
-        public clsUsuario(int id, string nombre, string contraseña, int estado, DateTime ultcon) 
+        public int intentos { get; set; }
+
+        public clsUsuario(int id, string nombre, string contraseña, int estado, DateTime ultcon, int intentos) 
         {
             this.id = id;
             this.nombre = nombre;
             this.contraseña = contraseña;
             this.estado = estado;
-            this.ultcon = ultcon;    
+            this.ultcon = ultcon;
+            this.intentos = intentos;
         
         
         

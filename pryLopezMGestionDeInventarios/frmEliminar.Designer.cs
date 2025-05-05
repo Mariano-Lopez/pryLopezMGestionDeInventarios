@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEliminar));
             this.mrcEliminar = new System.Windows.Forms.GroupBox();
+            this.chkConf = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblEliminar = new System.Windows.Forms.Label();
-            this.ptbEliminar = new System.Windows.Forms.PictureBox();
+            this.imgEliminar = new System.Windows.Forms.PictureBox();
             this.numCodE = new System.Windows.Forms.NumericUpDown();
             this.numPrecioE = new System.Windows.Forms.NumericUpDown();
             this.numStockE = new System.Windows.Forms.NumericUpDown();
@@ -48,9 +49,8 @@
             this.txtDescE = new System.Windows.Forms.TextBox();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.chkConf = new System.Windows.Forms.CheckBox();
             this.mrcEliminar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCodE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecioE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockE)).BeginInit();
@@ -64,7 +64,7 @@
             this.mrcEliminar.Controls.Add(this.btnBuscar);
             this.mrcEliminar.Controls.Add(this.btnEliminar);
             this.mrcEliminar.Controls.Add(this.lblEliminar);
-            this.mrcEliminar.Controls.Add(this.ptbEliminar);
+            this.mrcEliminar.Controls.Add(this.imgEliminar);
             this.mrcEliminar.Controls.Add(this.numCodE);
             this.mrcEliminar.Controls.Add(this.numPrecioE);
             this.mrcEliminar.Controls.Add(this.numStockE);
@@ -83,11 +83,23 @@
             this.mrcEliminar.TabIndex = 6;
             this.mrcEliminar.TabStop = false;
             // 
+            // chkConf
+            // 
+            this.chkConf.AutoSize = true;
+            this.chkConf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkConf.ForeColor = System.Drawing.Color.DarkGreen;
+            this.chkConf.Location = new System.Drawing.Point(503, 218);
+            this.chkConf.Name = "chkConf";
+            this.chkConf.Size = new System.Drawing.Size(160, 17);
+            this.chkConf.TabIndex = 25;
+            this.chkConf.Text = "Mesaje de confirmación";
+            this.chkConf.UseVisualStyleBackColor = true;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnBuscar.Location = new System.Drawing.Point(36, 213);
             this.btnBuscar.Name = "btnBuscar";
@@ -101,7 +113,7 @@
             // 
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnEliminar.Location = new System.Drawing.Point(256, 214);
             this.btnEliminar.Name = "btnEliminar";
@@ -116,7 +128,7 @@
             // lblEliminar
             // 
             this.lblEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblEliminar.Font = new System.Drawing.Font("BankGothic Md BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEliminar.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblEliminar.Location = new System.Drawing.Point(140, 19);
             this.lblEliminar.Name = "lblEliminar";
@@ -125,15 +137,15 @@
             this.lblEliminar.Text = "Para elminar un producto, haga click sobre la fila que desea borrar, también lo p" +
     "uede buscar  por el código del mismo.";
             // 
-            // ptbEliminar
+            // imgEliminar
             // 
-            this.ptbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("ptbEliminar.Image")));
-            this.ptbEliminar.Location = new System.Drawing.Point(36, 19);
-            this.ptbEliminar.Name = "ptbEliminar";
-            this.ptbEliminar.Size = new System.Drawing.Size(94, 80);
-            this.ptbEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbEliminar.TabIndex = 21;
-            this.ptbEliminar.TabStop = false;
+            this.imgEliminar.Image = ((System.Drawing.Image)(resources.GetObject("imgEliminar.Image")));
+            this.imgEliminar.Location = new System.Drawing.Point(36, 19);
+            this.imgEliminar.Name = "imgEliminar";
+            this.imgEliminar.Size = new System.Drawing.Size(94, 80);
+            this.imgEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEliminar.TabIndex = 21;
+            this.imgEliminar.TabStop = false;
             // 
             // numCodE
             // 
@@ -177,11 +189,11 @@
             // 
             this.lblDesE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDesE.AutoSize = true;
-            this.lblDesE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblDesE.Location = new System.Drawing.Point(342, 115);
             this.lblDesE.Name = "lblDesE";
-            this.lblDesE.Size = new System.Drawing.Size(109, 14);
+            this.lblDesE.Size = new System.Drawing.Size(94, 16);
             this.lblDesE.TabIndex = 1;
             this.lblDesE.Text = "Descripción:";
             // 
@@ -189,11 +201,11 @@
             // 
             this.lblPreE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPreE.AutoSize = true;
-            this.lblPreE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPreE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblPreE.Location = new System.Drawing.Point(120, 169);
             this.lblPreE.Name = "lblPreE";
-            this.lblPreE.Size = new System.Drawing.Size(65, 14);
+            this.lblPreE.Size = new System.Drawing.Size(56, 16);
             this.lblPreE.TabIndex = 3;
             this.lblPreE.Text = "Precio:";
             // 
@@ -201,11 +213,11 @@
             // 
             this.lblStockE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStockE.AutoSize = true;
-            this.lblStockE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblStockE.Location = new System.Drawing.Point(33, 169);
             this.lblStockE.Name = "lblStockE";
-            this.lblStockE.Size = new System.Drawing.Size(61, 14);
+            this.lblStockE.Size = new System.Drawing.Size(50, 16);
             this.lblStockE.TabIndex = 4;
             this.lblStockE.Text = "Stock:";
             // 
@@ -213,11 +225,11 @@
             // 
             this.lblNomE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNomE.AutoSize = true;
-            this.lblNomE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblNomE.Location = new System.Drawing.Point(120, 115);
             this.lblNomE.Name = "lblNomE";
-            this.lblNomE.Size = new System.Drawing.Size(73, 14);
+            this.lblNomE.Size = new System.Drawing.Size(66, 16);
             this.lblNomE.TabIndex = 2;
             this.lblNomE.Text = "Nombre:";
             // 
@@ -225,23 +237,23 @@
             // 
             this.lblCatE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCatE.AutoSize = true;
-            this.lblCatE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCatE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblCatE.Location = new System.Drawing.Point(209, 168);
             this.lblCatE.Name = "lblCatE";
-            this.lblCatE.Size = new System.Drawing.Size(93, 14);
+            this.lblCatE.Size = new System.Drawing.Size(79, 16);
             this.lblCatE.TabIndex = 5;
-            this.lblCatE.Text = "Categoria:";
+            this.lblCatE.Text = "Categoría:";
             // 
             // lblCodE
             // 
             this.lblCodE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodE.AutoSize = true;
-            this.lblCodE.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodE.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblCodE.Location = new System.Drawing.Point(33, 115);
             this.lblCodE.Name = "lblCodE";
-            this.lblCodE.Size = new System.Drawing.Size(68, 14);
+            this.lblCodE.Size = new System.Drawing.Size(61, 16);
             this.lblCodE.TabIndex = 0;
             this.lblCodE.Text = "Código:";
             // 
@@ -300,7 +312,7 @@
             this.btnCerrar.BackColor = System.Drawing.Color.Black;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnCerrar.Location = new System.Drawing.Point(34, 12);
             this.btnCerrar.Name = "btnCerrar";
@@ -309,18 +321,6 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // chkConf
-            // 
-            this.chkConf.AutoSize = true;
-            this.chkConf.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkConf.ForeColor = System.Drawing.Color.DarkGreen;
-            this.chkConf.Location = new System.Drawing.Point(503, 218);
-            this.chkConf.Name = "chkConf";
-            this.chkConf.Size = new System.Drawing.Size(193, 16);
-            this.chkConf.TabIndex = 25;
-            this.chkConf.Text = "Mesaje de confirmación";
-            this.chkConf.UseVisualStyleBackColor = true;
             // 
             // frmEliminar
             // 
@@ -339,7 +339,7 @@
             this.Load += new System.EventHandler(this.frmEliminar_Load);
             this.mrcEliminar.ResumeLayout(false);
             this.mrcEliminar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCodE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecioE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockE)).EndInit();
@@ -365,7 +365,7 @@
         private System.Windows.Forms.TextBox txtDescE;
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.PictureBox ptbEliminar;
+        private System.Windows.Forms.PictureBox imgEliminar;
         private System.Windows.Forms.Label lblEliminar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;

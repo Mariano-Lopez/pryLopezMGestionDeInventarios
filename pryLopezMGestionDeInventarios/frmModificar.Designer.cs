@@ -32,7 +32,7 @@
             this.mrcModificar = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblModificar = new System.Windows.Forms.Label();
-            this.ptbModificar = new System.Windows.Forms.PictureBox();
+            this.imgModificar = new System.Windows.Forms.PictureBox();
             this.numCodM = new System.Windows.Forms.NumericUpDown();
             this.numPrecioM = new System.Windows.Forms.NumericUpDown();
             this.numStockM = new System.Windows.Forms.NumericUpDown();
@@ -49,7 +49,7 @@
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.mrcModificar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbModificar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCodM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecioM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockM)).BeginInit();
@@ -61,7 +61,7 @@
             this.mrcModificar.BackColor = System.Drawing.Color.Black;
             this.mrcModificar.Controls.Add(this.btnBuscar);
             this.mrcModificar.Controls.Add(this.lblModificar);
-            this.mrcModificar.Controls.Add(this.ptbModificar);
+            this.mrcModificar.Controls.Add(this.imgModificar);
             this.mrcModificar.Controls.Add(this.numCodM);
             this.mrcModificar.Controls.Add(this.numPrecioM);
             this.mrcModificar.Controls.Add(this.numStockM);
@@ -85,7 +85,7 @@
             // 
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnBuscar.Location = new System.Drawing.Point(36, 215);
             this.btnBuscar.Name = "btnBuscar";
@@ -98,7 +98,7 @@
             // lblModificar
             // 
             this.lblModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblModificar.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModificar.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblModificar.Location = new System.Drawing.Point(136, 19);
             this.lblModificar.Name = "lblModificar";
@@ -106,15 +106,15 @@
             this.lblModificar.TabIndex = 21;
             this.lblModificar.Text = resources.GetString("lblModificar.Text");
             // 
-            // ptbModificar
+            // imgModificar
             // 
-            this.ptbModificar.Image = ((System.Drawing.Image)(resources.GetObject("ptbModificar.Image")));
-            this.ptbModificar.Location = new System.Drawing.Point(36, 19);
-            this.ptbModificar.Name = "ptbModificar";
-            this.ptbModificar.Size = new System.Drawing.Size(94, 80);
-            this.ptbModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbModificar.TabIndex = 7;
-            this.ptbModificar.TabStop = false;
+            this.imgModificar.Image = ((System.Drawing.Image)(resources.GetObject("imgModificar.Image")));
+            this.imgModificar.Location = new System.Drawing.Point(36, 19);
+            this.imgModificar.Name = "imgModificar";
+            this.imgModificar.Size = new System.Drawing.Size(94, 80);
+            this.imgModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgModificar.TabIndex = 7;
+            this.imgModificar.TabStop = false;
             // 
             // numCodM
             // 
@@ -158,11 +158,11 @@
             // 
             this.lblDesM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDesM.AutoSize = true;
-            this.lblDesM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblDesM.Location = new System.Drawing.Point(342, 116);
             this.lblDesM.Name = "lblDesM";
-            this.lblDesM.Size = new System.Drawing.Size(109, 14);
+            this.lblDesM.Size = new System.Drawing.Size(94, 16);
             this.lblDesM.TabIndex = 1;
             this.lblDesM.Text = "Descripción:";
             // 
@@ -170,11 +170,11 @@
             // 
             this.lblPreM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPreM.AutoSize = true;
-            this.lblPreM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPreM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblPreM.Location = new System.Drawing.Point(120, 169);
             this.lblPreM.Name = "lblPreM";
-            this.lblPreM.Size = new System.Drawing.Size(65, 14);
+            this.lblPreM.Size = new System.Drawing.Size(56, 16);
             this.lblPreM.TabIndex = 3;
             this.lblPreM.Text = "Precio:";
             // 
@@ -182,11 +182,11 @@
             // 
             this.lblStockM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStockM.AutoSize = true;
-            this.lblStockM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblStockM.Location = new System.Drawing.Point(33, 169);
             this.lblStockM.Name = "lblStockM";
-            this.lblStockM.Size = new System.Drawing.Size(61, 14);
+            this.lblStockM.Size = new System.Drawing.Size(50, 16);
             this.lblStockM.TabIndex = 4;
             this.lblStockM.Text = "Stock:";
             // 
@@ -194,11 +194,11 @@
             // 
             this.lblNomM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNomM.AutoSize = true;
-            this.lblNomM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblNomM.Location = new System.Drawing.Point(120, 115);
             this.lblNomM.Name = "lblNomM";
-            this.lblNomM.Size = new System.Drawing.Size(73, 14);
+            this.lblNomM.Size = new System.Drawing.Size(66, 16);
             this.lblNomM.TabIndex = 2;
             this.lblNomM.Text = "Nombre:";
             // 
@@ -206,23 +206,23 @@
             // 
             this.lblCatM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCatM.AutoSize = true;
-            this.lblCatM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCatM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblCatM.Location = new System.Drawing.Point(209, 168);
             this.lblCatM.Name = "lblCatM";
-            this.lblCatM.Size = new System.Drawing.Size(93, 14);
+            this.lblCatM.Size = new System.Drawing.Size(79, 16);
             this.lblCatM.TabIndex = 5;
-            this.lblCatM.Text = "Categoria:";
+            this.lblCatM.Text = "Categoría:";
             // 
             // lblCodM
             // 
             this.lblCodM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodM.AutoSize = true;
-            this.lblCodM.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodM.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblCodM.Location = new System.Drawing.Point(33, 116);
             this.lblCodM.Name = "lblCodM";
-            this.lblCodM.Size = new System.Drawing.Size(68, 14);
+            this.lblCodM.Size = new System.Drawing.Size(61, 16);
             this.lblCodM.TabIndex = 0;
             this.lblCodM.Text = "Código:";
             // 
@@ -242,7 +242,7 @@
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnModificar.Location = new System.Drawing.Point(219, 214);
             this.btnModificar.Name = "btnModificar";
@@ -297,7 +297,7 @@
             // btnCerrar
             // 
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("BankGothic Md BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnCerrar.Location = new System.Drawing.Point(34, 12);
             this.btnCerrar.Name = "btnCerrar";
@@ -324,7 +324,7 @@
             this.Load += new System.EventHandler(this.frmModificar_Load);
             this.mrcModificar.ResumeLayout(false);
             this.mrcModificar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbModificar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCodM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecioM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockM)).EndInit();
@@ -351,7 +351,7 @@
         private System.Windows.Forms.TextBox txtDescM;
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.PictureBox ptbModificar;
+        private System.Windows.Forms.PictureBox imgModificar;
         private System.Windows.Forms.Label lblModificar;
         private System.Windows.Forms.Button btnBuscar;
     }

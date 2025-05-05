@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.ptbCierre = new System.Windows.Forms.PictureBox();
+            this.imgCierre = new System.Windows.Forms.PictureBox();
             this.lblUltcon = new System.Windows.Forms.Label();
-            this.ptbInicio = new System.Windows.Forms.PictureBox();
-            this.ptbEliminar = new System.Windows.Forms.PictureBox();
-            this.ptbModificar = new System.Windows.Forms.PictureBox();
-            this.ptbAgregar = new System.Windows.Forms.PictureBox();
+            this.imgInicio = new System.Windows.Forms.PictureBox();
+            this.imgEliminar = new System.Windows.Forms.PictureBox();
+            this.imgModificar = new System.Windows.Forms.PictureBox();
+            this.imgAgregar = new System.Windows.Forms.PictureBox();
             this.btnCerarSesion = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -45,28 +45,28 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblTit = new System.Windows.Forms.Label();
-            this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlFormHijo = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCierre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEliminar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbModificar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCierre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgInicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgModificar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAgregar)).BeginInit();
             this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Black;
             this.panelMenu.Controls.Add(this.lblUsuario);
-            this.panelMenu.Controls.Add(this.ptbCierre);
+            this.panelMenu.Controls.Add(this.imgCierre);
             this.panelMenu.Controls.Add(this.lblUltcon);
-            this.panelMenu.Controls.Add(this.ptbInicio);
-            this.panelMenu.Controls.Add(this.ptbEliminar);
-            this.panelMenu.Controls.Add(this.ptbModificar);
-            this.panelMenu.Controls.Add(this.ptbAgregar);
+            this.panelMenu.Controls.Add(this.imgInicio);
+            this.panelMenu.Controls.Add(this.imgEliminar);
+            this.panelMenu.Controls.Add(this.imgModificar);
+            this.panelMenu.Controls.Add(this.imgAgregar);
             this.panelMenu.Controls.Add(this.btnCerarSesion);
             this.panelMenu.Controls.Add(this.btnEliminar);
             this.panelMenu.Controls.Add(this.btnModificar);
@@ -83,75 +83,75 @@
             // 
             this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("BankGothic Md BT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblUsuario.Location = new System.Drawing.Point(2, 517);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(242, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(202, 18);
             this.lblUsuario.TabIndex = 1;
-            this.lblUsuario.Text = "nombre de usurio actual";
+            this.lblUsuario.Text = "Nombre de usuario actual";
             // 
-            // ptbCierre
+            // imgCierre
             // 
-            this.ptbCierre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ptbCierre.Image = ((System.Drawing.Image)(resources.GetObject("ptbCierre.Image")));
-            this.ptbCierre.Location = new System.Drawing.Point(0, 572);
-            this.ptbCierre.Name = "ptbCierre";
-            this.ptbCierre.Size = new System.Drawing.Size(51, 45);
-            this.ptbCierre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbCierre.TabIndex = 0;
-            this.ptbCierre.TabStop = false;
+            this.imgCierre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.imgCierre.Image = ((System.Drawing.Image)(resources.GetObject("imgCierre.Image")));
+            this.imgCierre.Location = new System.Drawing.Point(0, 572);
+            this.imgCierre.Name = "imgCierre";
+            this.imgCierre.Size = new System.Drawing.Size(51, 45);
+            this.imgCierre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgCierre.TabIndex = 0;
+            this.imgCierre.TabStop = false;
             // 
             // lblUltcon
             // 
             this.lblUltcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUltcon.Font = new System.Drawing.Font("BankGothic Md BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUltcon.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblUltcon.Location = new System.Drawing.Point(3, 533);
             this.lblUltcon.Name = "lblUltcon";
             this.lblUltcon.Size = new System.Drawing.Size(241, 36);
             this.lblUltcon.TabIndex = 0;
-            this.lblUltcon.Text = "fecha y hora de ultima conexion de usuario actual";
+            this.lblUltcon.Text = "Ffecha y hora de última conexión de usuario actual";
             // 
-            // ptbInicio
+            // imgInicio
             // 
-            this.ptbInicio.Image = ((System.Drawing.Image)(resources.GetObject("ptbInicio.Image")));
-            this.ptbInicio.Location = new System.Drawing.Point(0, 100);
-            this.ptbInicio.Name = "ptbInicio";
-            this.ptbInicio.Size = new System.Drawing.Size(51, 45);
-            this.ptbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbInicio.TabIndex = 10;
-            this.ptbInicio.TabStop = false;
+            this.imgInicio.Image = ((System.Drawing.Image)(resources.GetObject("imgInicio.Image")));
+            this.imgInicio.Location = new System.Drawing.Point(0, 100);
+            this.imgInicio.Name = "imgInicio";
+            this.imgInicio.Size = new System.Drawing.Size(51, 45);
+            this.imgInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgInicio.TabIndex = 10;
+            this.imgInicio.TabStop = false;
             // 
-            // ptbEliminar
+            // imgEliminar
             // 
-            this.ptbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("ptbEliminar.Image")));
-            this.ptbEliminar.Location = new System.Drawing.Point(0, 235);
-            this.ptbEliminar.Name = "ptbEliminar";
-            this.ptbEliminar.Size = new System.Drawing.Size(51, 45);
-            this.ptbEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbEliminar.TabIndex = 8;
-            this.ptbEliminar.TabStop = false;
+            this.imgEliminar.Image = ((System.Drawing.Image)(resources.GetObject("imgEliminar.Image")));
+            this.imgEliminar.Location = new System.Drawing.Point(0, 235);
+            this.imgEliminar.Name = "imgEliminar";
+            this.imgEliminar.Size = new System.Drawing.Size(51, 45);
+            this.imgEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEliminar.TabIndex = 8;
+            this.imgEliminar.TabStop = false;
             // 
-            // ptbModificar
+            // imgModificar
             // 
-            this.ptbModificar.Image = ((System.Drawing.Image)(resources.GetObject("ptbModificar.Image")));
-            this.ptbModificar.Location = new System.Drawing.Point(0, 190);
-            this.ptbModificar.Name = "ptbModificar";
-            this.ptbModificar.Size = new System.Drawing.Size(51, 45);
-            this.ptbModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbModificar.TabIndex = 7;
-            this.ptbModificar.TabStop = false;
+            this.imgModificar.Image = ((System.Drawing.Image)(resources.GetObject("imgModificar.Image")));
+            this.imgModificar.Location = new System.Drawing.Point(0, 190);
+            this.imgModificar.Name = "imgModificar";
+            this.imgModificar.Size = new System.Drawing.Size(51, 45);
+            this.imgModificar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgModificar.TabIndex = 7;
+            this.imgModificar.TabStop = false;
             // 
-            // ptbAgregar
+            // imgAgregar
             // 
-            this.ptbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("ptbAgregar.Image")));
-            this.ptbAgregar.Location = new System.Drawing.Point(0, 145);
-            this.ptbAgregar.Name = "ptbAgregar";
-            this.ptbAgregar.Size = new System.Drawing.Size(51, 45);
-            this.ptbAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAgregar.TabIndex = 6;
-            this.ptbAgregar.TabStop = false;
+            this.imgAgregar.Image = ((System.Drawing.Image)(resources.GetObject("imgAgregar.Image")));
+            this.imgAgregar.Location = new System.Drawing.Point(0, 145);
+            this.imgAgregar.Name = "imgAgregar";
+            this.imgAgregar.Size = new System.Drawing.Size(51, 45);
+            this.imgAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgAgregar.TabIndex = 6;
+            this.imgAgregar.TabStop = false;
             // 
             // btnCerarSesion
             // 
@@ -161,7 +161,7 @@
             this.btnCerarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnCerarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerarSesion.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerarSesion.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnCerarSesion.Location = new System.Drawing.Point(0, 572);
             this.btnCerarSesion.Name = "btnCerarSesion";
@@ -181,7 +181,7 @@
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnEliminar.Location = new System.Drawing.Point(0, 235);
             this.btnEliminar.Name = "btnEliminar";
@@ -202,7 +202,7 @@
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("BankGothic Md BT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnModificar.Location = new System.Drawing.Point(0, 190);
             this.btnModificar.Name = "btnModificar";
@@ -225,7 +225,7 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar.Location = new System.Drawing.Point(0, 145);
@@ -247,7 +247,7 @@
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInicio.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnInicio.Location = new System.Drawing.Point(0, 100);
             this.btnInicio.Name = "btnInicio";
@@ -263,7 +263,7 @@
             // 
             this.pnlLogo.Controls.Add(this.lblNom);
             this.pnlLogo.Controls.Add(this.lblTit);
-            this.pnlLogo.Controls.Add(this.ptbLogo);
+            this.pnlLogo.Controls.Add(this.imgLogo);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.ForeColor = System.Drawing.Color.DarkGreen;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
@@ -274,7 +274,7 @@
             // lblNom
             // 
             this.lblNom.BackColor = System.Drawing.Color.Black;
-            this.lblNom.Font = new System.Drawing.Font("BankGothic Md BT", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNom.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblNom.Location = new System.Drawing.Point(117, 48);
             this.lblNom.Name = "lblNom";
@@ -285,7 +285,7 @@
             // lblTit
             // 
             this.lblTit.BackColor = System.Drawing.Color.Black;
-            this.lblTit.Font = new System.Drawing.Font("BankGothic Md BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTit.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblTit.Location = new System.Drawing.Point(123, 9);
             this.lblTit.Name = "lblTit";
@@ -293,16 +293,16 @@
             this.lblTit.TabIndex = 3;
             this.lblTit.Text = "Gestión de inventario";
             // 
-            // ptbLogo
+            // imgLogo
             // 
-            this.ptbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ptbLogo.Image = ((System.Drawing.Image)(resources.GetObject("ptbLogo.Image")));
-            this.ptbLogo.Location = new System.Drawing.Point(0, 0);
-            this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(117, 100);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbLogo.TabIndex = 0;
-            this.ptbLogo.TabStop = false;
+            this.imgLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
+            this.imgLogo.Location = new System.Drawing.Point(0, 0);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(117, 100);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogo.TabIndex = 0;
+            this.imgLogo.TabStop = false;
             // 
             // pnlFormHijo
             // 
@@ -332,13 +332,13 @@
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCierre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbEliminar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbModificar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCierre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgInicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgModificar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAgregar)).EndInit();
             this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,15 +351,15 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.PictureBox ptbLogo;
+        private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Panel pnlFormHijo;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblTit;
-        private System.Windows.Forms.PictureBox ptbAgregar;
-        private System.Windows.Forms.PictureBox ptbInicio;
-        private System.Windows.Forms.PictureBox ptbEliminar;
-        private System.Windows.Forms.PictureBox ptbModificar;
-        private System.Windows.Forms.PictureBox ptbCierre;
+        private System.Windows.Forms.PictureBox imgAgregar;
+        private System.Windows.Forms.PictureBox imgInicio;
+        private System.Windows.Forms.PictureBox imgEliminar;
+        private System.Windows.Forms.PictureBox imgModificar;
+        private System.Windows.Forms.PictureBox imgCierre;
         private System.Windows.Forms.Label lblUltcon;
         private System.Windows.Forms.Label lblUsuario;
     }

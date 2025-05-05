@@ -142,7 +142,7 @@ namespace pryGestionInventario
 
                 foreach (DataRow fila in tablaProductos.Rows)
                 {
-                    clsUsuario aux = new clsUsuario(Convert.ToInt32(fila[0]), fila[1].ToString(), fila[2].ToString(), Convert.ToInt32(fila[3]), Convert.ToDateTime(fila[4])); 
+                    clsUsuario aux = new clsUsuario(Convert.ToInt32(fila[0]), fila[1].ToString(), fila[2].ToString(), Convert.ToInt32(fila[3]), Convert.ToDateTime(fila[4]), Convert.ToInt32(fila[5])); 
 
                     lst.lstUsuarios.Add(aux);
                 }
@@ -184,6 +184,25 @@ namespace pryGestionInventario
                 {
                     // Asignamos los parámetros
                     cmd.Parameters.AddWithValue("@ultcon", usuario.ultcon);
+                    cmd.Parameters.AddWithValue("@id", usuario.id);
+
+                    // Abrimos la conexión y ejecutamos el comando
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void ActualizarIntentos(clsUsuario usuario)
+        {
+            string query = "UPDATE Usuarios SET intentos = @intentos WHERE id = @id";
+
+            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // Asignamos los parámetros
+                    cmd.Parameters.AddWithValue("@intentos", usuario.intentos);
                     cmd.Parameters.AddWithValue("@id", usuario.id);
 
                     // Abrimos la conexión y ejecutamos el comando
