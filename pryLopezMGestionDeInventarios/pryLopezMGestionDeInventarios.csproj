@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexionBD.cs" />
+    <Compile Include="clsFuente.cs" />
     <Compile Include="clsProducto.cs" />
     <Compile Include="clsProductos.cs" />
     <Compile Include="clsSesion.cs" />
@@ -121,6 +122,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Recursos\Fuentes\BankGothic Md BT.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

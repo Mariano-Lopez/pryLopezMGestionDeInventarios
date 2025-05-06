@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace pryLopezMGestionDeInventarios
             InitializeComponent();
         }
 
+        
         clsConexionBD objetoConexion = new clsConexionBD();
         clsUsuarios lstUsuarios = new clsUsuarios();
         
@@ -28,6 +30,12 @@ namespace pryLopezMGestionDeInventarios
         private void frmUsuario_Load(object sender, EventArgs e)
         {
             objetoConexion.cargarUsuario(lstUsuarios);
+
+            
+
+            clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
+
+            
         }
 
         private void btnIngresar_MouseEnter(object sender, EventArgs e)

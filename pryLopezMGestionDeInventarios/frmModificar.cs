@@ -30,6 +30,8 @@ namespace pryLopezMGestionDeInventarios
 
         private void frmModificar_Load(object sender, EventArgs e)
         {
+            clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
+
             objetoConexion.cargarLista(lstProductos);
 
             objetoConexion.ConectarBDDGV(dgvInventario);

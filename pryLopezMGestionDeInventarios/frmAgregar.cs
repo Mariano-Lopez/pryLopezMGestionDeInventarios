@@ -26,7 +26,9 @@ namespace pryLopezMGestionDeInventarios
         clsProductos lstProductos = new clsProductos();
         private void frmAgregar_Load(object sender, EventArgs e)
         {
-            
+
+            clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
+
             btnAgregar.Enabled = false;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.BackColor = Color.Black;

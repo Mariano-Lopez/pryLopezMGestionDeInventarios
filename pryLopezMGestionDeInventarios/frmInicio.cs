@@ -24,6 +24,8 @@ namespace pryGestionDeInventarios
         
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
+
             lblUsuario.Text = $"Sesión de {clsSesion.nomUs}";
             lblUltcon.Text = $"Fecha y hora de última conexión: {clsSesion.ultConUs.ToString()}";
         }
