@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregar));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -99,6 +100,14 @@
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInventario.BackgroundColor = System.Drawing.Color.Black;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventario.Location = new System.Drawing.Point(51, 300);
             this.dgvInventario.MultiSelect = false;
             this.dgvInventario.Name = "dgvInventario";
@@ -134,11 +143,12 @@
             // 
             // imgAgregar
             // 
+            this.imgAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgAgregar.Image = ((System.Drawing.Image)(resources.GetObject("imgAgregar.Image")));
             this.imgAgregar.Location = new System.Drawing.Point(36, 20);
             this.imgAgregar.Name = "imgAgregar";
-            this.imgAgregar.Size = new System.Drawing.Size(94, 80);
-            this.imgAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgAgregar.Size = new System.Drawing.Size(89, 80);
+            this.imgAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgAgregar.TabIndex = 4;
             this.imgAgregar.TabStop = false;
             // 
@@ -147,9 +157,9 @@
             this.lblAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgregar.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblAgregar.Location = new System.Drawing.Point(136, 20);
+            this.lblAgregar.Location = new System.Drawing.Point(131, 20);
             this.lblAgregar.Name = "lblAgregar";
-            this.lblAgregar.Size = new System.Drawing.Size(535, 86);
+            this.lblAgregar.Size = new System.Drawing.Size(525, 86);
             this.lblAgregar.TabIndex = 21;
             this.lblAgregar.Text = "Para agregar un producto, llene todos los campos que se ven a continuación. En ca" +
     "so de que un campo quede vacío, el boton no se habilitará.";
@@ -169,6 +179,7 @@
             // 
             // numPrecioA
             // 
+            this.numPrecioA.DecimalPlaces = 2;
             this.numPrecioA.Location = new System.Drawing.Point(123, 187);
             this.numPrecioA.Maximum = new decimal(new int[] {
             1000000,
@@ -302,7 +313,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(777, 617);
+            this.ClientSize = new System.Drawing.Size(779, 617);
             this.Controls.Add(this.mrcAgregar);
             this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.btnCerrar);

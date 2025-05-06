@@ -122,15 +122,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Imagenes\add-box.png" />
+    <Content Include="Imagenes\ajustar.png" />
+    <Content Include="Imagenes\casa-inteligente.png" />
+    <Content Include="Imagenes\checklist.ico" />
+    <Content Include="Imagenes\checklist.png" />
+    <Content Include="Imagenes\eliminar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\Fondo Pie.png" />
+    <Content Include="Imagenes\fondoInicio.jpg" />
+    <Content Include="Imagenes\Logo2.png" />
+    <Content Include="Imagenes\puerta-de-salida.png" />
     <Content Include="Recursos\Fuentes\BankGothic Md BT.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Imagenes\FondoInicioDeSesion.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="checklist.ico" />

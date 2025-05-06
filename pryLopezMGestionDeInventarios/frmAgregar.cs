@@ -68,6 +68,8 @@ namespace pryLopezMGestionDeInventarios
             //Que no haya saltos de linea
             string nombre = txtNomA.Text.Replace("\r", "").Replace("\n", "").Trim();
             string descripcion = txtDescA.Text.Replace("\r", "").Replace("\n", "").Trim();
+            
+
 
             txtNomA.Text = nombre;
             txtDescA.Text = descripcion;
@@ -79,7 +81,7 @@ namespace pryLopezMGestionDeInventarios
 
                 lstProductos.agregarProducto(aux);
 
-                objetoConexion.agregarProducto(numCodA, txtNomA, numStockA, txtDescA, numPrecioA, cmbCatA);
+                objetoConexion.agregarProducto(numCodA, txtNomA, txtDescA,  numPrecioA, numStockA, cmbCatA);
 
                 objetoConexion.ConectarBDDGV(dgvInventario);
 

@@ -160,6 +160,7 @@
             this.txtContra.Size = new System.Drawing.Size(170, 20);
             this.txtContra.TabIndex = 6;
             this.txtContra.UseSystemPasswordChar = true;
+            this.txtContra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContra_KeyDown);
             // 
             // txtUsuario
             // 

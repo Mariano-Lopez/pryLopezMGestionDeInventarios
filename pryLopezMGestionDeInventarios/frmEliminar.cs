@@ -28,6 +28,8 @@ namespace pryLopezMGestionDeInventarios
 
         private void frmEliminar_Load(object sender, EventArgs e)
         {
+            
+
             clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
 
             objetoConexion.cargarLista(lstProductos);

@@ -11,6 +11,7 @@ using System.Data;
 using System.Collections;
 using pryLopezMGestionDeInventarios;
 using pryGestionDeInventarios;
+using System.Globalization;
 
 namespace pryGestionInventario
 {
@@ -52,6 +53,9 @@ namespace pryGestionInventario
                 dgv.DataSource = dataTable;
 
                 dgv.ClearSelection();
+
+                dgv.Columns["Precio"].DefaultCellStyle.Format = "N2";
+                dgv.Columns["Precio"].DefaultCellStyle.FormatProvider = new CultureInfo("es-AR");
 
                 foreach (DataGridViewColumn column in dgv.Columns)
                 {
@@ -256,33 +260,36 @@ namespace pryGestionInventario
 
 
 
-        public void agregarProducto(NumericUpDown num, TextBox txt, NumericUpDown num1, TextBox txt2, NumericUpDown num2, ComboBox cmb)
+        public void agregarProducto(NumericUpDown num, TextBox txt, TextBox txt2, NumericUpDown num1,  NumericUpDown num2, ComboBox cmb)
         {
-            try 
+            try
             {
                 conexionBaseDatos = new SqlConnection(cadenaConexion);
-
-                nombreBaseDeDatos = conexionBaseDatos.Database;
-
                 conexionBaseDatos.Open();
 
-                string query = $"INSERT INTO Productos (Codigo, Nombre, Descripcion, Precio, Stock, Categoria) VALUES ('{num.Value}', '{txt.Text}','{txt2.Text}' , '{num1.Value}', '{num2.Value}', '{cmb.Text}')";
+                string query = @"INSERT INTO Productos 
+                         (Codigo, Nombre, Descripcion, Precio, Stock, Categoria) 
+                         VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @Stock, @Categoria)";
+
                 SqlCommand command = new SqlCommand(query, conexionBaseDatos);
+
+                command.Parameters.AddWithValue("@Codigo", Convert.ToInt32(num.Value));
+                command.Parameters.AddWithValue("@Nombre", txt.Text);
+                command.Parameters.AddWithValue("@Descripcion", txt2.Text);
+                command.Parameters.AddWithValue("@Precio", Convert.ToDecimal(num1.Value));
+                command.Parameters.AddWithValue("@Stock", Convert.ToInt32(num2.Value));
+                command.Parameters.AddWithValue("@Categoria", cmb.Text);
 
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                
-                MessageBox.Show(ex.Message,"Errorax");
+                MessageBox.Show(ex.Message, "Error al agregar producto");
             }
-            finally 
+            finally
             {
                 conexionBaseDatos.Close();
             }
-            
-
-
         }
 
         public void borrarProducto(NumericUpDown num)

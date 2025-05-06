@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEliminar));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mrcEliminar = new System.Windows.Forms.GroupBox();
             this.chkConf = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -161,6 +162,7 @@
             // 
             // numPrecioE
             // 
+            this.numPrecioE.DecimalPlaces = 2;
             this.numPrecioE.Enabled = false;
             this.numPrecioE.Location = new System.Drawing.Point(123, 187);
             this.numPrecioE.Maximum = new decimal(new int[] {
@@ -297,6 +299,14 @@
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInventario.BackgroundColor = System.Drawing.Color.Black;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventario.Location = new System.Drawing.Point(51, 300);
             this.dgvInventario.MultiSelect = false;
             this.dgvInventario.Name = "dgvInventario";

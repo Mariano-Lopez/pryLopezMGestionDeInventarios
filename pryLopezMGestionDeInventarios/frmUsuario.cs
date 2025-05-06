@@ -150,5 +150,14 @@ namespace pryLopezMGestionDeInventarios
             txtContra.UseSystemPasswordChar = !chkContraseña.Checked;
         }
 
+        private void txtContra_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificamos si la tecla presionada es Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Llamamos al evento Click del botón como si se hubiera hecho clic
+                btnIngresar.PerformClick();
+            }
+        }
     }
 }
