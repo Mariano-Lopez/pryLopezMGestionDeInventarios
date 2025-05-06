@@ -49,14 +49,6 @@ namespace pryLopezMGestionDeInventarios
             btnModificar.BackColor = Color.Black;
             btnModificar.ForeColor = Color.DarkGreen;
             btnModificar.FlatAppearance.BorderSize = 0;
-
-
-
-
-
-
-
-
         }
 
         private void HabilitarBoton()
@@ -77,9 +69,9 @@ namespace pryLopezMGestionDeInventarios
             string descripcion = txtDescM.Text.Replace("\r", "").Replace("\n", "").Trim();
             
 
-            if (numCodM.Value == 0 || string.IsNullOrWhiteSpace(nombre) || numStockM.Value == 0 || string.IsNullOrWhiteSpace(descripcion) || numPrecioM.Value == 0 || num != numCodM.Value)
+            if (numCodM.Value == 0 || string.IsNullOrWhiteSpace(nombre) || numStockM.Value == 0 || string.IsNullOrWhiteSpace(descripcion) || numPrecioM.Value == 0)
             {
-                MessageBox.Show("No se pueden dejar campos vacíos o con solo espacios/saltos de línea. No se le pueden cambiar los códigos a los productos.", "Error de carga");
+                MessageBox.Show("No se pueden dejar campos vacíos o con solo espacios/saltos de línea.", "Error de carga");
                 numCodM.Value = num;
             }
             else
@@ -97,6 +89,7 @@ namespace pryLopezMGestionDeInventarios
         public void resetearDatos()
         {
             numCodM.Value = 0;
+            numCodM.Enabled = true;
             txtNomM.Text = "";
             numStockM.Value = 0;
             txtDescM.Text = "";
@@ -117,12 +110,13 @@ namespace pryLopezMGestionDeInventarios
                 DataGridViewRow fila = dgvInventario.Rows[e.RowIndex];
 
                 numCodM.Value = Convert.ToDecimal(fila.Cells["Codigo"].Value);
-                num = Convert.ToDecimal(fila.Cells["Codigo"].Value);
                 txtNomM.Text = fila.Cells["Nombre"].Value?.ToString();
                 numStockM.Value = Convert.ToDecimal(fila.Cells["Stock"].Value);
                 txtDescM.Text = fila.Cells["Descripcion"].Value?.ToString();
                 numPrecioM.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
                 cmbCatM.Text = fila.Cells["Categoria"].Value.ToString();
+
+                numCodM.Enabled = false;
 
                 HabilitarBoton();
                 habilitarComponentes(true);
@@ -156,10 +150,10 @@ namespace pryLopezMGestionDeInventarios
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
 
-            num = numCodM.Value;
-            clsProducto resultado = lstProductos.BuscarPorCodigo(num);
+            numCodM.Enabled = false;
+
+            clsProducto resultado = lstProductos.BuscarPorCodigo(numCodM.Value);
 
             if (resultado != null)
             {
@@ -175,7 +169,7 @@ namespace pryLopezMGestionDeInventarios
             else
             {
                 MessageBox.Show("Producto no encontrado.","Error de búsqueda");
-
+                numCodM.Enabled = true;
             }
         }
 
