@@ -2,6 +2,8 @@ CREATE DATABASE Comercio;
 
 USE Comercio;
 
+Drop table productos;
+
 CREATE TABLE Productos (
     Codigo INT PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL,
@@ -10,6 +12,9 @@ CREATE TABLE Productos (
     Stock INT NOT NULL,
     Categoria VARCHAR(50) NOT NULL
 );
+
+
+
 
 INSERT INTO Productos (Codigo, Nombre, Descripcion, Precio, Stock, Categoria) VALUES
 (1, 'Auriculares Bluetooth', 'Auriculares inalámbricos con micrófono y cancelación de ruido', 4500, 15, 'Electronicos'),
@@ -32,6 +37,11 @@ INSERT INTO Productos (Codigo, Nombre, Descripcion, Precio, Stock, Categoria) VA
 (18, 'Auriculares Cableados', 'Auriculares con cable, conector 3.5mm', 1000, 27, 'Electronicos'),
 (19, 'Aceite Girasol 900ml', 'Aceite comestible de girasol', 1300, 60, 'Alimentos'),
 (20, 'Colonia Infantil', 'Colonia suave para niños, sin alcohol', 4500, 19, 'Perfumes');
+
+
+select * FROM productos;
+
+DELETE FROM productos where Codigo=0;
 
 
 set DATEFORMAT mdy;
