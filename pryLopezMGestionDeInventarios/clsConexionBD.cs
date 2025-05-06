@@ -17,18 +17,18 @@ namespace pryGestionInventario
 {
     internal class clsConexionBD
     {
-        //cadena de conexion
+        //cadena de conexion.
         string cadenaConexion = "Server=localhost;Database=Comercio;Trusted_Connection=True;";
 
-        //conector
+        //conector.
         SqlConnection conexionBaseDatos;
-
-        //comando
+        
+        //comando.
         SqlCommand comandoBaseDatos;
 
         public string nombreBaseDeDatos;
 
-
+        //Procedimiento para conectarse a la BBDD y mostrar los datos en una DGV.
         public void ConectarBDDGV(DataGridView dgv)
         {
             try
@@ -40,7 +40,7 @@ namespace pryGestionInventario
                 conexionBaseDatos.Open();
                 
                 
-
+                //Query.
                 string query = "SELECT * FROM Productos";
                 SqlCommand command = new SqlCommand(query, conexionBaseDatos);
 
@@ -54,9 +54,11 @@ namespace pryGestionInventario
 
                 dgv.ClearSelection();
 
+                //Cambio de formato para poder mostrar los precios con ",".
                 dgv.Columns["Precio"].DefaultCellStyle.Format = "N2";
                 dgv.Columns["Precio"].DefaultCellStyle.FormatProvider = new CultureInfo("es-AR");
 
+                //Que la DGV no la pueda controlar el usuario u ordenarla.
                 foreach (DataGridViewColumn column in dgv.Columns)
                 {
                     column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -73,55 +75,7 @@ namespace pryGestionInventario
 
         }
 
-        public void ConectarBD()
-        {
-            try
-            {
-                conexionBaseDatos = new SqlConnection(cadenaConexion);
-
-                nombreBaseDeDatos = conexionBaseDatos.Database;
-
-                conexionBaseDatos.Open();
-
-
-
-                
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message, "No se pudo conectar a la BBDD");
-            }
-            finally
-            {
-                conexionBaseDatos.Close();
-            }
-
-        }
-
-        public void validacionDeDatos(TextBox txt, TextBox txt2)
-        {
-            string query = "SELECT COUNT(*) FROM Usuarios WHERE Nombre = @usuario AND contraseña = @contraseña";
-
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand cmd = new SqlCommand(query, conexion);
-                cmd.Parameters.AddWithValue("@usuario", txt.Text);
-                cmd.Parameters.AddWithValue("@contraseña", txt2.Text);
-
-                conexion.Open();
-                int count = (int)cmd.ExecuteScalar();
-
-                if (count > 0)
-                {
-                    frmInicio v= new frmInicio();
-                    v.ShowDialog();
-                }
-            }
-
-
-
-        }
-
+        //Cargo todos los usuarios en una lista para poder manipular los datos.
         public void cargarUsuario(clsUsuarios lst)
         {
             try
@@ -135,10 +89,10 @@ namespace pryGestionInventario
                 string query = "SELECT * FROM Usuarios";
                 comandoBaseDatos = new SqlCommand(query, conexionBaseDatos);
 
-                //Crear un DataTable
+                //Crear un DataTable.
                 DataTable tablaProductos = new DataTable();
 
-                //Llenar el DataTable
+                //Llenar el DataTable.
                 using (SqlDataReader reader = comandoBaseDatos.ExecuteReader())
                 {
                     tablaProductos.Load(reader);
@@ -253,13 +207,6 @@ namespace pryGestionInventario
             }
         }
 
-
-
-
-
-
-
-
         public void agregarProducto(NumericUpDown num, TextBox txt, TextBox txt2, NumericUpDown num1,  NumericUpDown num2, ComboBox cmb)
         {
             try
@@ -357,10 +304,15 @@ namespace pryGestionInventario
             }
         }
 
-        
-
-
-
-
     }
 }
+
+
+
+
+
+
+
+
+
+

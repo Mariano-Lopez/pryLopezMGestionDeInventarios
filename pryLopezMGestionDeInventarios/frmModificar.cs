@@ -18,25 +18,23 @@ namespace pryLopezMGestionDeInventarios
             InitializeComponent();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        //Instancias de clases.
         clsConexionBD objetoConexion = new clsConexionBD();
         clsProductos lstProductos = new clsProductos();
 
-        decimal num = 0;
-
         private void frmModificar_Load(object sender, EventArgs e)
         {
+
+            //Fuente global.
             clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
 
+            //Cargo la lista de productos.
             objetoConexion.cargarLista(lstProductos);
 
+            //Muestro los productos.
             objetoConexion.ConectarBDDGV(dgvInventario);
 
-
+            //Vector que llena los cmb.
             string[] dat = new string[] { "Electrònicos", "Bazar/Librerìa", "Perfumes", "Limpieza" };
 
             foreach (string d in dat)
@@ -44,85 +42,41 @@ namespace pryLopezMGestionDeInventarios
                 cmbCatM.Items.Add(d);
             }
 
-            btnModificar.Enabled = false;
-            btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.BackColor = Color.Black;
-            btnModificar.ForeColor = Color.DarkGreen;
-            btnModificar.FlatAppearance.BorderSize = 0;
-        }
-
-        private void HabilitarBoton()
-        {
-            btnModificar.Enabled = true;
-            btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.BackColor = Color.Black;
-            btnModificar.ForeColor = Color.DarkGreen;
-            btnModificar.FlatAppearance.BorderColor = Color.DarkGreen;
-            btnModificar.FlatAppearance.BorderSize = 1;
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            // Limpiamos y verificamos los textos
-            //Que no haya saltos de linea
-            string nombre = txtNomM.Text.Replace("\r", "").Replace("\n", "").Trim();
-            string descripcion = txtDescM.Text.Replace("\r", "").Replace("\n", "").Trim();
             
+        }
 
-            if (numCodM.Value == 0 || string.IsNullOrWhiteSpace(nombre) || numStockM.Value == 0 || string.IsNullOrWhiteSpace(descripcion) || numPrecioM.Value == 0)
+        //Eventos
+
+        //Evento click de búsqueda.
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Deshabilito el num ya que no se puede modificar el código del producto.
+            numCodM.Enabled = false;
+
+            //Obtengo el producto y los cargo en una clase.
+            clsProducto resultado = lstProductos.BuscarPorCodigo(numCodM.Value);
+
+            //Recorro la lista en caso de que no este vacía y lleno los componentes.
+            if (resultado != null)
             {
-                MessageBox.Show("No se pueden dejar campos vacíos o con solo espacios/saltos de línea.", "Error de carga");
-                numCodM.Value = num;
+                txtNomM.Text = resultado.Nombre;
+                numStockM.Value = resultado.Stock;
+                txtDescM.Text = resultado.Descripcion;
+                numPrecioM.Value = resultado.Precio;
+                cmbCatM.Text = resultado.Categoria;
+
+                habilitarComponentes(true);
+                HabilitarBoton();
             }
             else
             {
-                // Actualizás los textos limpios en los TextBox por si querés corregir visualmente también
-                txtNomM.Text = nombre;
-                txtDescM.Text = descripcion;
-
-                objetoConexion.modificarProducto(numCodM, txtNomM, numStockM, txtDescM, numPrecioM, cmbCatM);
-                objetoConexion.ConectarBDDGV(dgvInventario);
-                resetearDatos();
+                //Mensaje de que no se encontró el producto.
+                MessageBox.Show("Producto no encontrado.", "Error de búsqueda");
+                numCodM.Enabled = true;
             }
         }
 
-        public void resetearDatos()
-        {
-            numCodM.Value = 0;
-            numCodM.Enabled = true;
-            txtNomM.Text = "";
-            numStockM.Value = 0;
-            txtDescM.Text = "";
-            numPrecioM.Value = 0;
-            cmbCatM.SelectedIndex = -1;
-            cmbCatM.Text = "Seleccione...";
-            btnModificar.Enabled = false;
-            btnModificar.FlatAppearance.BorderSize = 0;
-
-            habilitarComponentes(false);
-
-        }
-
-        private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Evita que cambie si selecciona el encabezado
-            {
-                DataGridViewRow fila = dgvInventario.Rows[e.RowIndex];
-
-                numCodM.Value = Convert.ToDecimal(fila.Cells["Codigo"].Value);
-                txtNomM.Text = fila.Cells["Nombre"].Value?.ToString();
-                numStockM.Value = Convert.ToDecimal(fila.Cells["Stock"].Value);
-                txtDescM.Text = fila.Cells["Descripcion"].Value?.ToString();
-                numPrecioM.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
-                cmbCatM.Text = fila.Cells["Categoria"].Value.ToString();
-
-                numCodM.Enabled = false;
-
-                HabilitarBoton();
-                habilitarComponentes(true);
-            }
-        }
-
+        //Eventos cuando se aleja o se acerca el mouse.
         private void btnModificar_MouseEnter(object sender, EventArgs e)
         {
             if (btnModificar.Enabled)
@@ -148,31 +102,63 @@ namespace pryLopezMGestionDeInventarios
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        //Evento click de la DGV
+        private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            numCodM.Enabled = false;
-
-            clsProducto resultado = lstProductos.BuscarPorCodigo(numCodM.Value);
-
-            if (resultado != null)
+            //Si no selecciona la columna.
+            if (e.RowIndex >= 0)
             {
-                txtNomM.Text = resultado.Nombre;
-                numStockM.Value = resultado.Stock;
-                txtDescM.Text = resultado.Descripcion;
-                numPrecioM.Value = resultado.Precio;
-                cmbCatM.Text = resultado.Categoria;
+                //Toma los datos de la fila y llena los componentes.
+                DataGridViewRow fila = dgvInventario.Rows[e.RowIndex];
 
-                habilitarComponentes(true);
+                numCodM.Value = Convert.ToDecimal(fila.Cells["Codigo"].Value);
+                txtNomM.Text = fila.Cells["Nombre"].Value?.ToString();
+                numStockM.Value = Convert.ToDecimal(fila.Cells["Stock"].Value);
+                txtDescM.Text = fila.Cells["Descripcion"].Value?.ToString();
+                numPrecioM.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                cmbCatM.Text = fila.Cells["Categoria"].Value.ToString();
+
+                numCodM.Enabled = false;
+
+                //Habilito el botón y deshabilito los componentes.
                 HabilitarBoton();
-            }
-            else
-            {
-                MessageBox.Show("Producto no encontrado.","Error de búsqueda");
-                numCodM.Enabled = true;
+                habilitarComponentes(true);
             }
         }
 
+        //Evento click
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //Mismo control que en el frmAgregar para que no puedan cargar productos con saltos de linea.
+            string nombre = txtNomM.Text.Replace("\r", "").Replace("\n", "").Trim();
+            string descripcion = txtDescM.Text.Replace("\r", "").Replace("\n", "").Trim();
+
+            //Mensaje por si al modificar deja algún campo vacío.
+            if (numCodM.Value == 0 || string.IsNullOrWhiteSpace(nombre) || numStockM.Value == 0 || string.IsNullOrWhiteSpace(descripcion) || numPrecioM.Value == 0)
+            {
+                MessageBox.Show("No se pueden dejar campos vacíos o con solo espacios/saltos de línea.", "Error de carga");
+
+            }
+            else
+            {
+                //Actualizo los componentes
+                txtNomM.Text = nombre;
+                txtDescM.Text = descripcion;
+
+                //Mando la modificación a la BBDD.
+                objetoConexion.modificarProducto(numCodM, txtNomM, numStockM, txtDescM, numPrecioM, cmbCatM);
+
+                //Muestro los productos con el cambio realizado.
+                objetoConexion.ConectarBDDGV(dgvInventario);
+
+                //Reinicio los componentes.
+                resetearDatos();
+            }
+        }
+
+        //Procedimientos
+
+        //Habilitación de componentes.
         public void habilitarComponentes(bool bnd)
         {
             txtNomM.Enabled = bnd;
@@ -181,5 +167,42 @@ namespace pryLopezMGestionDeInventarios
             numPrecioM.Enabled = bnd;
             cmbCatM.Enabled = bnd;
         }
+
+
+        //Limpieza de interfaz.
+        public void resetearDatos()
+        {
+            numCodM.Value = 0;
+            numCodM.Enabled = true;
+            txtNomM.Text = "";
+            numStockM.Value = 0;
+            txtDescM.Text = "";
+            numPrecioM.Value = 0;
+            cmbCatM.SelectedIndex = -1;
+            cmbCatM.Text = "Seleccione...";
+            btnModificar.Enabled = false;
+            btnModificar.FlatAppearance.BorderSize = 0;
+
+            habilitarComponentes(false);
+
+        }
+
+        //Procedmiento que habilita el botón con distinto formato.
+        private void HabilitarBoton()
+        {
+            btnModificar.Enabled = true;
+            btnModificar.FlatStyle = FlatStyle.Flat;
+            btnModificar.BackColor = Color.Black;
+            btnModificar.ForeColor = Color.DarkGreen;
+            btnModificar.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnModificar.FlatAppearance.BorderSize = 1;
+        }
+
+        //Cierra el formulario actual y nos deja en el inicio.
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

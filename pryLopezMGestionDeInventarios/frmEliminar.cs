@@ -17,26 +17,24 @@ namespace pryLopezMGestionDeInventarios
         {
             InitializeComponent();
         }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
+        //Instancias de clases.
         clsConexionBD objetoConexion = new clsConexionBD();
         clsProductos lstProductos = new clsProductos();
 
         private void frmEliminar_Load(object sender, EventArgs e)
         {
             
-
+            //Fuente global.
             clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
 
+            //Cargo los productos.
             objetoConexion.cargarLista(lstProductos);
 
+            //Los muestro
             objetoConexion.ConectarBDDGV(dgvInventario);
 
-
+            //Genero un vector para cargar los cmb.
             string[] dat = new string[] { "Electrònicos", "Bazar/Librerìa", "Perfumes", "Limpieza" };
 
             foreach (string d in dat)
@@ -44,29 +42,22 @@ namespace pryLopezMGestionDeInventarios
                 cmbCatE.Items.Add(d);
             }
 
-            dgvInventario.DataBindingComplete += dgvInventario_DataBindingComplete;
+            //Dejo por defecto el mensaje de confirmación.
+            chkConf.Checked = true;
+            
         }
 
-        private void HabilitarBoton()
-        {
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.BackColor = Color.Black;
-            btnEliminar.ForeColor = Color.DarkGreen;
-            btnEliminar.FlatAppearance.BorderColor = Color.DarkGreen;
-            btnEliminar.FlatAppearance.BorderSize = 1;
-        }
+        //Eventos
 
-        private void dgvInventario_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvInventario.ClearSelection();
-        }
-
-
+        //Evento click
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
+            //Si esta clickeado el 
             if (chkConf.Checked)
             {
+                //Pregunto si esta seguro de eliminar el producto.
                 DialogResult rtdo = MessageBox.Show(
+                    //Le muestro una descripción detallada del producto que esta por borrar.
                     "¿Desea eliminar el siguiente producto?\n" +
                     $"Código: {numCodE.Value}\n" +
                     $"Nombre: {txtNomE.Text}\n" +
@@ -80,30 +71,42 @@ namespace pryLopezMGestionDeInventarios
 
                 );
 
+                //Si llega a confirmar
                 if (rtdo == DialogResult.Yes)
                 {
+                    //Controlo si quiere eliminar el código 0.
                     if (numCodE.Value == 0)
                     {
+                        //Si es así, le dejo un mensaje.
                         MessageBox.Show("Por favor cargue un código o seleccione una fila.", "Error");
                     }
-
                     else
                     {
+                        //Sino borramos el producto.
+
+                        //Tomo el valor del código ya que es único.
                         decimal codigoBuscado = numCodE.Value;
+
+                        //Lo busco.
                         clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
 
+                        //Si se encuentra el prodcuto
                         if (resultado != null)
                         {
+                            //Se elimina
                             objetoConexion.borrarProducto(numCodE);
 
+                            //Se vuelve a mostrar la DGV actualizada.
                             objetoConexion.ConectarBDDGV(dgvInventario);
                         }
                         else
                         {
+                            //Mensaje por si no se encuentra.
                             MessageBox.Show("Producto no encontrado.");
 
                         }
 
+                        //Limpio la interfaz
                         resetearDatos();
                     }
 
@@ -112,6 +115,7 @@ namespace pryLopezMGestionDeInventarios
             }
             else
             {
+                //En caso de que el mensaje de confirmación no esta activo, se borra el producto sin confirmar.
                 if (numCodE.Value == 0)
                 {
                     MessageBox.Show("Por favor cargue un código o seleccione una fila.", "Error");
@@ -139,21 +143,12 @@ namespace pryLopezMGestionDeInventarios
             }
         }
 
-        public void resetearDatos()
-        {
-            numCodE.Value = 0;
-            txtNomE.Text = "";
-            numStockE.Value = 0;
-            txtDescE.Text = "";
-            numPrecioE.Value = 0;
-            cmbCatE.SelectedIndex = -1;
-            cmbCatE.Text = "Seleccione...";
-        }
-
+        //Evento click en la DGV
         private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Evita que cambie si selecciona el encabezado
             {
+                //Toma los datos de la fila seleccionada.
                 DataGridViewRow fila = dgvInventario.Rows[e.RowIndex];
                 btnEliminar.Enabled = true;
                 numCodE.Value = Convert.ToDecimal(fila.Cells["Codigo"].Value);
@@ -167,6 +162,64 @@ namespace pryLopezMGestionDeInventarios
             }
         }
 
+        //Evento click de buscar el producto.
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Tomo el código
+            decimal codigoBuscado = numCodE.Value;
+
+            //Lo busco adentro de la lista.
+            clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
+
+            //Si consigue un dato
+            if (resultado != null)
+            {
+                //Llena los componentes
+                txtNomE.Text = resultado.Nombre;
+                numStockE.Value = resultado.Stock;
+                txtDescE.Text = resultado.Descripcion;
+                numPrecioE.Value = resultado.Precio;
+                cmbCatE.Text = resultado.Categoria;
+            }
+            else
+            {
+                //Sino informa que no se encontró el producto.
+                MessageBox.Show("Producto no encontrado.");
+
+            }
+        }
+
+        //Procedimientos
+
+        //Procedimiento que habilita el botón con cierto formato.
+        private void HabilitarBoton()
+        {
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.BackColor = Color.Black;
+            btnEliminar.ForeColor = Color.DarkGreen;
+            btnEliminar.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnEliminar.FlatAppearance.BorderSize = 1;
+        }
+
+        //Cierra el formulario actual y nos lleva al incio.
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //Se reinician los componentes.
+        public void resetearDatos()
+        {
+            numCodE.Value = 0;
+            txtNomE.Text = "";
+            numStockE.Value = 0;
+            txtDescE.Text = "";
+            numPrecioE.Value = 0;
+            cmbCatE.SelectedIndex = -1;
+            cmbCatE.Text = "Seleccione...";
+        }
+
+        //Cambia el formato de los botones cuando el mouse esta arriba o lejos.
         private void btnEliminar_MouseEnter_1(object sender, EventArgs e)
         {
             if (btnEliminar.Enabled)
@@ -192,53 +245,22 @@ namespace pryLopezMGestionDeInventarios
             }
         }
 
-        public void aparienciaHoverE(Button btn)
-        {
-            if (btn.Enabled)
-            {
-                // Invertir colores
-                btn.BackColor = Color.DarkGreen;
-                btn.ForeColor = Color.Black;
-            }
-        }
 
-        public void aparienciaHoverL(Button btn)
-        {
-            if (btn.Enabled)
-            {
-                // Volver al estilo original
-                btn.BackColor = Color.Black;
-                btn.ForeColor = Color.DarkGreen;
-            }
-            else
-            {
-                btn.ForeColor = Color.Black;
-                btn.BackColor = Color.Black;
-            }
-        }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            decimal codigoBuscado = numCodE.Value;
-            clsProducto resultado = lstProductos.BuscarPorCodigo(codigoBuscado);
 
-            if (resultado != null)
-            {
-                txtNomE.Text = resultado.Nombre;
-                numStockE.Value = resultado.Stock;
-                txtDescE.Text = resultado.Descripcion;
-                numPrecioE.Value = resultado.Precio;
-                cmbCatE.Text = resultado.Categoria;
-            }
-            else
-            {
-                MessageBox.Show("Producto no encontrado.");
 
-            }
-        }
 
-        
-            
-        
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

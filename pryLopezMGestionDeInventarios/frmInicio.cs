@@ -20,44 +20,24 @@ namespace pryGestionDeInventarios
         {
             InitializeComponent();
         }
-        clsConexionBD objetoConexion = new clsConexionBD();
         
         private void frmInicio_Load(object sender, EventArgs e)
         {
+
+            //Fuente global
             clsFuente.AplicarFuentePersonalizada(this, "BankGothic Md BT.ttf");
 
+            //Declare 2 variablles globales y se les dió valor en el frmUsuario. Muestra el nombre del usuario, fecha y hora de última conxión.
             lblUsuario.Text = $"Sesión de {clsSesion.nomUs}";
             lblUltcon.Text = $"Fecha y hora de última conexión: {clsSesion.ultConUs.ToString()}";
         }
         
+        //Declara la variable null, ya que no se abre ningún formulario específico
         private Form activeForm = null;
 
-        private void abrirFormularioHijo(Form frm)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = frm;
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-            pnlFormHijo.Controls.Add(frm);
-            pnlFormHijo.Tag = frm;
-            frm.BringToFront();
-            frm.Show();
+        //Eventos
 
-        }
-        private void Home(Form frm)
-        {
-
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = frm;
-            
-        }
+        //Botones que abren el formulario especificado.
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new frmAgregar());
@@ -73,11 +53,14 @@ namespace pryGestionDeInventarios
             abrirFormularioHijo(new frmEliminar());
         }
 
+        //Si se le hace click cierra el formulario actual y queda en el inicio.
         private void btnInicio_Click(object sender, EventArgs e)
         {
             Home(new frmInicio());
         }
 
+
+        //Eventos para cambiar el formato cuando el mouse pasa por arriba o si sale.
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
             aparienciaHoverE(btnInicio);
@@ -128,9 +111,26 @@ namespace pryGestionDeInventarios
             aparienciaHoverL(btnCerarSesion);
         }
 
+        //Cierra la sesión del usuario.
+        private void btnCerarSesion_Click(object sender, EventArgs e)
+        {
+            //Mensaje de confirmación, si clickea no, no hace nada.
+            DialogResult rtdo = MessageBox.Show(
+                "¿Desea cerrar sesión?",
+                "Cierre de sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
+            if (rtdo == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
+        //Procedimientos
 
+        //Cambio de formato a los botones cuando se pasa por arriba con el mouse.
         public void aparienciaHoverE(Button btn)
         {
             if (btn.Enabled)
@@ -156,31 +156,67 @@ namespace pryGestionDeInventarios
             }
         }
 
-        private void btnCerarSesion_Click(object sender, EventArgs e)
+        //Cierra el formulario actual y abre uno nuevo, se lo envía por parámetro.
+        private void abrirFormularioHijo(Form frm)
         {
-            DialogResult rtdo = MessageBox.Show(
-                "¿Desea cerrar sesión?",
-                "Cierre de sesión",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-                );
-
-            if (rtdo == DialogResult.Yes)
+            if (activeForm != null)
             {
-                this.Close();
+                activeForm.Close();
             }
 
-            
+            activeForm = frm;
 
-            
+            //Cambia los estilos del formulario.
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            pnlFormHijo.Controls.Add(frm);
+            pnlFormHijo.Tag = frm;
 
-     
-
-
+            //Los trae al frente y los muestra.
+            frm.BringToFront();
+            frm.Show();
 
         }
 
-        
+        //Cierra los formularios actuales y abre el de inicio.
+        private void Home(Form frm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = frm;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     

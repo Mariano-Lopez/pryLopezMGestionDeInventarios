@@ -243,6 +243,7 @@
             // btnModificar
             // 
             this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
