@@ -23,7 +23,7 @@ namespace pryLopezMGestionDeInventarios
         clsUsuarios lstUsuarios = new clsUsuarios();
         
 
-        int intentos = 3;
+        
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
@@ -70,54 +70,52 @@ namespace pryLopezMGestionDeInventarios
                     if (usuario.estado != 0)
                     {
 
-                    // Si el usuario existe, verifica la contraseña
-                    if (usuario.contraseña == txtContra.Text)
-                    {
-                        // Si la contraseña es correcta, resetea los intentos fallidos
-                        /*usuario.intentosFallidos = 0;*/
-                        MessageBox.Show($"Bienvenido { usuario.nombre}.", "Login exitoso");
+                        // Si el usuario existe, verifica la contraseña
+                        if (usuario.contraseña == txtContra.Text)
+                        {
+                            // Si la contraseña es correcta, resetea los intentos fallidos
+                            /*usuario.intentosFallidos = 0;*/
+                            MessageBox.Show($"Bienvenido { usuario.nombre}.", "Login exitoso");
 
-                        clsSesion.nomUs = usuario.nombre;
+                            clsSesion.nomUs = usuario.nombre;
 
-                        clsSesion.ultConUs = usuario.ultcon;
+                            clsSesion.ultConUs = usuario.ultcon;
 
-                        objetoConexion.validacionDeDatos(txtUsuario, txtContra);
+                            objetoConexion.validacionDeDatos(txtUsuario, txtContra);
 
-                        usuario.ultcon = System.DateTime.Now;
+                            usuario.ultcon = System.DateTime.Now;
 
-                        objetoConexion.ActualizarInicio(usuario);
+                            objetoConexion.ActualizarInicio(usuario);
 
-                        txtContra.Text = "";
-                        txtUsuario.Text = "";
+                            txtContra.Text = "";
+                            txtUsuario.Text = "";
 
                         
 
-                    }
-                    else
-                    {
-                        // Si la contraseña es incorrecta, aumenta los intentos fallidos
-                        lblIntentos.Visible = true;
-                        intentos--;
-                        lblIntentos.Text = $"Intentos restantes: {intentos}";
-                        if (intentos == 0)
-                        {
-                            // Si llega a 3 intentos fallidos, deshabilita al usuario
-                            usuario.estado = 0;
-                            MessageBox.Show("Has alcanzado el límite de intentos fallidos. Tu cuenta ha sido deshabilitada.");
-                            txtUsuario.Text = "";
-                            lblIntentos.Visible= false;
-                            intentos = 3;
-
                         }
-                        /*else
+                        else
                         {
-                            // Si no se alcanzan 3 intentos fallidos, muestra el mensaje
-                            MessageBox.Show("Contraseña incorrecta. Intentos fallidos: " + intentos);
-                        }*/
-                    }
+                            // Si la contraseña es incorrecta, aumenta los intentos fallidos
+                            lblIntentos.Visible = true;
+                            usuario.intentos --;
+                            objetoConexion.ActualizarIntentos(usuario);
+                            lblIntentos.Text = $"Intentos restantes: {usuario.intentos}";
+                            if (usuario.intentos == 0)
+                            {
+                                // Si llega a 3 intentos fallidos, deshabilita al usuario
+                                usuario.estado = 0;
+                                MessageBox.Show("Has alcanzado el límite de intentos fallidos. Tu cuenta ha sido deshabilitada.");
+                                txtUsuario.Text = "";
+                                txtContra.Text = "";
+                                lblIntentos.Visible= false;
+                                usuario.intentos = 3;
+                                objetoConexion.ActualizarIntentos(usuario);
+                            }
+                            
+                        }
 
-                    // Aquí puedes hacer la actualización de la base de datos con el estado actualizado
-                    objetoConexion.ActualizarUsuario(usuario);
+                        
+                        objetoConexion.ActualizarUsuario(usuario);
 
                     }
                     else
