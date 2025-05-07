@@ -75,7 +75,7 @@
             // 
             this.lblInstruccion.BackColor = System.Drawing.Color.Black;
             this.lblInstruccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblInstruccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstruccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInstruccion.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblInstruccion.Location = new System.Drawing.Point(31, 105);
             this.lblInstruccion.Name = "lblInstruccion";
